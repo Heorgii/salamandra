@@ -1,5 +1,5 @@
 {
-  "name": "react-homework-template",
+  "name": "salamandra",
   "version": "0.1.0",
   "private": true,
   "homepage": "https://goitacademy.github.io/react-homework-template/",
@@ -36,5 +36,20 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "description": "Этот проект был создан при помощи\r [Create React App](https://github.com/facebook/create-react-app). Для знакомства\r и настройки дополнительных возможностей\r [обратись к документации](https://facebook.github.io/create-react-app/docs/getting-started).",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Heorgii/salamandra.git"
+  },
+  "keywords": [
+    "salamadra"
+  ],
+  "author": "Heorgii",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Heorgii/salamandra/issues"
   }
 }
