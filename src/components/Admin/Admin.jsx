@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { MdClose, MdEdit, MdAddCard, MdDone } from 'react-icons/md';
@@ -23,7 +24,7 @@ import {
 } from './Admin.styled';
 
 export const Admin = () => {
-  const { BASE_URL_IMG } = window.global;
+  //   const { BASE_URL_IMG } = window.global;
 
   const [positions, setPositions] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -127,7 +128,7 @@ export const Admin = () => {
         item.currency.toString().toLowerCase().includes(filterCurrency) &&
         item.img.toString().toLowerCase().includes(filterImage)
       ) {
-        peremOfFilter.push(item);
+        return peremOfFilter.push(item);
       }
     });
     setFilterPositions(peremOfFilter);
@@ -189,7 +190,7 @@ export const Admin = () => {
         item.currency.toString().toLowerCase().includes(filterC) &&
         item.img.toString().toLowerCase().includes(filterI)
       ) {
-        peremOfFilter.push(item);
+        return peremOfFilter.push(item);
       }
     });
     setFilterPositions(peremOfFilter);
@@ -498,9 +499,9 @@ export const Admin = () => {
               )}
               <TableHead>Action</TableHead>
             </TableRow>
-            {positions.length > 0 &&
+            {filterPositions.length > 0 &&
               !error &&
-              positions.map(position => (
+              filterPositions.map(position => (
                 <TableRow key={position._id}>
                   {/* <TableData>{positions._id}</TableData> */}
                   <TableData>{position.product}</TableData>
