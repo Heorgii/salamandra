@@ -1,9 +1,9 @@
 import React from 'react';
 
-export const Header = () => {
+export const EditModal = () => {
   return (
     <header>
-      <h1>Salamandra</h1>
+      <h1>EditModal</h1>
     </header>
   );
 };

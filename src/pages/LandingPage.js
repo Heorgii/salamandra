@@ -7,8 +7,8 @@ const LandingPage = () => {
   return (
     <>
       <SEO title="Menu" description="The Salamandra" />
-      <Header></Header>
-      <Menu></Menu>
+      <Header />
+      <Menu />
     </>
   );
 };
