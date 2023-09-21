@@ -6,6 +6,7 @@ export const GlobalStyle = createGlobalStyle`
 body {
   font-family: 'Inria Sans', sans-serif;
   font-family: 'Kumar One', cursive;
+  font-family: 'Montserrat', sans-serif;
 
   background-color:${theme.colors.white};
   
@@ -43,7 +44,6 @@ img {
   max-width: 100%;
   height: auto;
 }
-
 //-----modal windows-----//
 #popup-root {
     position: fixed;

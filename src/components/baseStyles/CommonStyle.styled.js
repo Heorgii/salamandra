@@ -1,17 +1,38 @@
 import styled from 'styled-components';
 import theme from 'components/baseStyles/Variables.styled';
 
-export const Container = styled.div`
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 24px;
-
-  @media screen and (min-width: ${theme.breakpoints.tablet}) {
-    padding: 0 30px;
-  }
+const Container = styled.div`
+  padding: 25px 110px;
 
   @media screen and (min-width: ${theme.breakpoints.desktop}) {
-    max-width: ${theme.breakpoints.desktop};
-    padding: 0 40px;
+    padding: 50px 238px;
   }
 `;
+
+const Subtitle = styled.h2`
+  color: ${theme.colors.braun};
+  font-family: ${theme.fonts[2]};
+  font-size: ${theme.fontSizes.large};
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+
+  @media screen and (min-width: ${theme.breakpoints.desktop}) {
+    font-size: ${theme.fontSizes.extra};
+  }
+`;
+
+const SubtitleText = styled.h3`
+  color: ${theme.colors.braun};
+  font-family: ${theme.fonts[2]};
+  font-size: ${theme.fontSizes.mediumPlus};
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+
+  @media screen and (min-width: ${theme.breakpoints.desktop}) {
+    font-size: ${theme.fontSizes.large};
+  }
+`;
+
+export { Container, Subtitle, SubtitleText };

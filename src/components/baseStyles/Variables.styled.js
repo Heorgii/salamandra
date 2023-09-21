@@ -9,23 +9,27 @@ const theme = {
   },
   colors: {
     white: '#FFFFFF',
+    yellow: '#FFB800',
     black: '#000000',
-    grey: '#707070',
-    accent: '#FFB800',
+    gray: '#707070',
     braun: '#9A4E00',
     opacity: 'rgba(113, 113, 113, 0.3)',
   },
-  fonts: ['Inria Sans, sans-serif', 'Kumar One, cursive'],
+  fonts: [
+    'Kumar One, cursive',
+    'Inria Sans, sans-serif',
+    'Montserrat, sans-serif',
+  ],
   fontSizes: {
-    small: '14px',
-    medium: '18px',
-    large: '20px',
-    extra: '24px',
-    extraXL: '32px',
-    extraXXL: '36px',
+    extraSmall: '10px',
+    small: '13px',
+    medium: '16px',
+    mediumPlus: '20px',
+    large: '24px',
+    extra: '30px',
+    extraXL: '36px',
+    extraXXL: '64px',
   },
-  transition: ['all 0.25s ease-in'],
-  scale: ['scale(1.15)'],
 };
 
 export default theme;
