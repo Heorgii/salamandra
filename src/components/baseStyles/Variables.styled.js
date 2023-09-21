@@ -9,12 +9,13 @@ const theme = {
   },
   colors: {
     fon: '#FFFFFF',
+    yellow: '#FFB800',
     menuTitle: '#000000',
     menuDiscr: '#707070',
     braun: '#9A4E00',
   },
   fonts: [
-    'Kumar One, sans-serif',
+    'Kumar One, cursive',
     'Inria Sans, sans-serif',
     'Montserrat, sans-serif',
   ],

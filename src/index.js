@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { App } from 'components/App';
 import './index.css';
-// import { GlobalStyle } from 'components/baseStyles/GlobalStyle';
+import { GlobalStyle } from 'components/baseStyles/GlobalStyle';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    {/* <GlobalStyle /> */}
+    <GlobalStyle />
     <App />
   </React.StrictMode>
 );

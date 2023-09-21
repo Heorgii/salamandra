@@ -1,15 +1,11 @@
-import 'modern-normalize'
-import { createGlobalStyle } from "styled-components";
+import 'modern-normalize';
+import { createGlobalStyle } from 'styled-components';
 import theme from './Variables.styled';
 
 export const GlobalStyle = createGlobalStyle`
 body {
-  /* Raisonne Pro */
-  font-family: 'Archivo', sans-serif;
-  /* font-family: 'Barlow', sans-serif; */
-  /* Nib Pro */
-  /* font-family: 'Domine', serif; */
- font-family: 'Fraunces', serif;
+  font-family: 'Inria Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 
   background-color:${theme.colors.fon};
   
