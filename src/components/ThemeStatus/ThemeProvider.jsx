@@ -1,4 +1,4 @@
-import { createContext } from 'react';
+import React, { createContext } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { useState, useEffect } from 'react';
 import { useTheme } from '../../hooks/useTheme';
