@@ -4,6 +4,7 @@ import { Container } from 'components/baseStyles/CommonStyle.styled';
 
 export const AdminContainer = styled(Container)`
   margin-top: 50px;
+  padding: 0 20px;
   overflow-x: scroll;
 `;
 
@@ -20,8 +21,8 @@ export const TableFilter = styled.thead`
     margin: 0;
     padding: 5px 35px 5px 10px;
 
-    font-family: ${theme.fonts[0]};
-    font-size: 10px;
+    font-family: ${theme.fonts[3]};
+    font-size: ${theme.fontSizes.extraSmall};
     font-weight: 400;
     line-height: 1.33;
     color: #303030;
@@ -41,8 +42,8 @@ export const TableHead = styled.th`
   position: relative;
   padding: 0.25rem;
 
-  font-family: ${theme.fonts[0]};
-  font-size: 10px;
+  font-family: ${theme.fonts[3]};
+  font-size: ${theme.fontSizes.extraSmall};
   font-weight: 700;
   line-height: 1.03;
 
@@ -63,8 +64,8 @@ export const TableData = styled.td`
   padding: 0.25rem;
   max-width: 80px;
 
-  font-family: ${theme.fonts[0]};
-  font-size: 10px;
+  font-family: ${theme.fonts[3]};
+  font-size: ${theme.fontSizes.extraSmall};
   font-weight: 400;
   line-height: 1.1;
 
@@ -133,8 +134,8 @@ export const LearnMoreBtn = styled.button`
   margin-left: auto;
   padding: 4px;
 
-  font-family: ${theme.fonts[0]};
-  font-size: 10px;
+  font-family: ${theme.fonts[3]};
+  font-size: ${theme.fontSizes.extraSmall};
   font-weight: 500;
   color: ${theme.colors.black};
 
