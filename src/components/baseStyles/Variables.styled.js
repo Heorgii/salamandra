@@ -13,19 +13,21 @@ const theme = {
     menuDiscr: '#707070',
     braun: '#9A4E00',
   },
-  // fonts: ['Archivo, sans-serif', 'Domine, serif'],
-  // fonts: ['Barlow, sans-serif', 'Fraunces, serif'],
-  fonts: ['Archivo, sans-serif', 'Fraunces, serif'],
+  fonts: [
+    'Kumar One, sans-serif',
+    'Inria Sans, sans-serif',
+    'Montserrat, sans-serif',
+  ],
   fontSizes: {
-    small: '14px',
-    medium: '18px',
-    large: '20px',
-    extra: '24px',
-    extraXL: '32px',
-    extraXXL: '36px',
+    extraSmall: '10px',
+    small: '13px',
+    medium: '16px',
+    mediumPlus: '20px',
+    large: '24px',
+    extra: '30px',
+    extraXL: '36px',
+    extraXXL: '64px',
   },
-  transition: ['all 0.25s ease-in'],
-  scale: ['scale(1.15)'],
 };
 
 export default theme;
