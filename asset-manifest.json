@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/salamandra/static/css/main.b5320759.css",
-    "main.js": "/salamandra/static/js/main.9312380e.js",
+    "main.css": "/salamandra/static/css/main.6cd6d9c0.css",
+    "main.js": "/salamandra/static/js/main.108ffb41.js",
     "index.html": "/salamandra/index.html",
-    "main.b5320759.css.map": "/salamandra/static/css/main.b5320759.css.map",
-    "main.9312380e.js.map": "/salamandra/static/js/main.9312380e.js.map"
+    "main.6cd6d9c0.css.map": "/salamandra/static/css/main.6cd6d9c0.css.map",
+    "main.108ffb41.js.map": "/salamandra/static/js/main.108ffb41.js.map"
   },
   "entrypoints": [
-    "static/css/main.b5320759.css",
-    "static/js/main.9312380e.js"
+    "static/css/main.6cd6d9c0.css",
+    "static/js/main.108ffb41.js"
   ]
 }
