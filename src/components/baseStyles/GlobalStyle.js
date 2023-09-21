@@ -7,7 +7,7 @@ body {
   font-family: 'Inria Sans', sans-serif;
   font-family: 'Montserrat', sans-serif;
 
-  background-color:${theme.colors.fon};
+  background-color:${theme.colors.white};
   
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

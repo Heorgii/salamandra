@@ -8,10 +8,10 @@ const theme = {
     desktop_max: '1279.98px',
   },
   colors: {
-    fon: '#FFFFFF',
+    white: '#FFFFFF',
     yellow: '#FFB800',
-    menuTitle: '#000000',
-    menuDiscr: '#707070',
+    black: '#000000',
+    gray: '#707070',
     braun: '#9A4E00',
   },
   fonts: [
