@@ -6,9 +6,10 @@ import {
   NavListItem,
   NavListItemLink,
 } from './Navigation.styled';
+import { SwitchTheme } from 'components/ThemeStatus/SwitcherTheme/SwitchTheme';
 
 export const Navigation = () => {
-  const [, setScrollX] = useState(0);//scrollX
+  const [, setScrollX] = useState(0); //scrollX
 
   const handleSliderScroll = e => {
     const container = e.target;
@@ -18,6 +19,8 @@ export const Navigation = () => {
 
   return (
     <NavBox>
+      <SwitchTheme />
+
       <Nav onScroll={handleSliderScroll}>
         <NavList>
           <NavListItem>

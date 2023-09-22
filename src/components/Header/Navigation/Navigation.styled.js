@@ -2,7 +2,7 @@ import theme from 'components/baseStyles/Variables.styled';
 import styled from 'styled-components';
 
 export const NavBox = styled.div`
-  margin-top: 240px;
+  margin-top: 230px;
   padding: 0 24px 0;
 
   @media screen and (min-width: ${theme.breakpoints.desktop}) {
@@ -28,9 +28,11 @@ export const Nav = styled.nav`
 export const NavList = styled.ul`
   display: flex;
   padding-bottom: 20px;
+  padding-top: 10px;
 
   @media screen and (min-width: ${theme.breakpoints.desktop}) {
     padding-bottom: 15px;
+    padding-top: 30px;
   }
 
   @media screen and (min-width: 1637px) {
@@ -46,6 +48,10 @@ export const NavListItem = styled.li`
   border-radius: 9px;
   background: ${theme.colors.yellow};
   padding: 6px 13px;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 
   &:not(:last-child) {
     margin-right: 20px;
