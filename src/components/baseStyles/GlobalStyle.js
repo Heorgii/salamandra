@@ -8,7 +8,7 @@ body {
   font-family: 'Kumar One', cursive;
   font-family: 'Montserrat', sans-serif;
 
-  background-color: ${(props) => props.theme.white};
+  background-color: ${theme.colors.white};
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
@@ -127,7 +127,7 @@ img {
         background: transparent;
         border: none;
         cursor: pointer;
-        color: var(--color-text-second);
+        color: ${theme.colors.gray};
     }
 
     .rc-pagination-jump-next button:after,
