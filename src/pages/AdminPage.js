@@ -6,6 +6,7 @@ const AdminPage = () => {
   return (
     <>
       <SEO title="Administration" description="Page Administration" />
+      <div style={{ height: '50px' }}>Auth</div>
       <Admin />
     </>
   );
