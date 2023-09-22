@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { useFormik, Formik } from 'formik';
 import { ImEye, ImEyeBlocked } from 'react-icons/im';
 import schemas from 'utils/schemas';
 import { register } from 'redux/auth/operations';
+import { selectId } from 'redux/auth/selectors';
+import { ModalInfo } from '../ModalInfo/ModalInfo';
+
+import logo from 'images/hero/salamandra.png';
 import theme from 'components/baseStyles/Variables.styled';
 import {
   FormStyled,
@@ -29,6 +34,10 @@ export const Register = () => {
   const [showConfirmPass, setShowConfirmPass] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
+
+  const user = useSelector(selectId);
+  // const [isOpenModal, setOpenModal] = useState(false);
+  // const toggleOpenModal = () => setOpenModal(state => !state);
 
   const onSubmit = ({ values }) => {
     setIsLoading(true);
@@ -92,6 +101,9 @@ export const Register = () => {
 
   return (
     <FormContainer>
+      <NavLink to={'/'}>
+        <img src={logo} width={42} height={42} alt="Logo" />
+      </NavLink>
       <Formik validationSchema={schemas.registerSchema}>
         <FormStyled onSubmit={formik.handleSubmit} autoComplete="off">
           <Title>Register</Title>
@@ -250,12 +262,13 @@ export const Register = () => {
               </BackButton>
               <BoxText>
                 <span>Already have an account?</span>
-                <StyledLink to="/signin">Sign In</StyledLink>
+                <StyledLink to="/signin">LOG IN</StyledLink>
               </BoxText>
             </BtnContainer>
           )}
         </FormStyled>
       </Formik>
+      {user !== null && <ModalInfo />}
     </FormContainer>
   );
 };

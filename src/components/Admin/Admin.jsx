@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { MdClose, MdEdit, MdAddCard, MdDone } from 'react-icons/md';
 import { openModalWindow } from 'hooks/modalWindow';
@@ -11,17 +12,23 @@ import { onLoading, onLoaded } from 'helpers/Loader/Loader';
 import { onFetchError } from 'helpers/Messages/NotifyMessages';
 import { EditModal } from 'components/Admin/Modal/EditModal';
 import { CreateModal } from 'components/Admin/Modal/CreateModal';
+import logo from 'images/hero/salamandra.png';
 import {
   AdminContainer,
   BtnWrapper,
+  Heading,
   IconBtn,
   LearnMoreBtn,
+  LogoutBtn,
+  LogoutIcon,
+  LogoutLabel,
   Table,
   TableData,
   TableFilter,
   TableHead,
   TableRow,
 } from './Admin.styled';
+import { logOut } from 'redux/auth/operations';
 
 export const Admin = () => {
   const [positions, setPositions] = useState([]);
@@ -249,6 +256,15 @@ export const Admin = () => {
   return (
     <>
       <AdminContainer>
+        <Heading>
+          <NavLink to={'/'}>
+            <img src={logo} width={42} height={42} alt="Logo" />
+          </NavLink>
+          <LogoutBtn aria-label="logout" onClick={e => dispatch(logOut())}>
+            <LogoutIcon />
+            <LogoutLabel>Log Out</LogoutLabel>
+          </LogoutBtn>
+        </Heading>
         {isLoading ? onLoading() : onLoaded()}
         {error && onFetchError('Whoops, something went wrong')}
         {!isLearnMore ? (

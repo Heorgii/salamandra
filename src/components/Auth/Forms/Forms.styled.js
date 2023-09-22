@@ -8,15 +8,14 @@ import theme from 'components/baseStyles/Variables.styled';
 export const FormContainer = styled(Container)`
   height: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+
+  padding: 30px;
 
   @media (min-width: ${theme.breakpoints.tablet}) {
-    padding-top: 170px;
-  }
-
-  @media screen and (min-width: ${theme.breakpoints.desktop}) {
-    padding-top: 44px;
+    padding: 50px;
   }
 `;
 
