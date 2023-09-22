@@ -15,6 +15,17 @@ export const Nav = styled.nav`
   overflow-x: scroll;
   white-space: nowrap;
 
+  width: 100%;
+  overflow-x: scroll;
+  white-space: nowrap;
+  position: ${({ isFixed }) => (isFixed ? 'fixed' : 'static')};
+  top: ${({ isFixed }) => (isFixed ? '0' : 'auto')};
+  left: 0;
+  background-color: ${({ isFixed }) => (isFixed ? '#ffffff' : 'transparent')};
+  box-shadow: ${({ isFixed }) => (isFixed ? '0px 2px 5px rgba(0, 0, 0, 0.1)' : 'none')};
+  z-index: ${({ isFixed }) => (isFixed ? '1000' : 'auto')};
+  transition: top 0.3s ease;
+
   &::-webkit-scrollbar {
     height: 2px;
   }
