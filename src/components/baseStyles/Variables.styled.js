@@ -30,6 +30,22 @@ const theme = {
     extraXL: '36px',
     extraXXL: '64px',
   },
+  transition: ['all 0.25s ease-in'],
+  scale: ['scale(1.15)'],
+};
+
+export const darkMode = {
+  light: {
+    white: '#FFFFFF',
+    black: '#000000',
+    orange: '#9A4E00',
+  },
+
+  dark: {
+    white: '#2D0116',
+    black: '#FFFFFF',
+    orange: '#FF8100',
+  },
 };
 
 export default theme;

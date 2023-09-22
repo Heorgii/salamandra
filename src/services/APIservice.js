@@ -60,13 +60,45 @@ async function createUserData(pathParams, body, file) {
   });
 }
 
-async function updateServiceData(pathParams, body) {
+async function fetchServiceData(pathParams, body, file) {
   const formData = new FormData();
-  formData.append('subject', body.subject);
-  formData.append('time', body.time);
-  formData.append('location', body.location);
+  formData.append('article', body.article);
+  formData.append('product', body.product);
+  formData.append('category', body.category);
+  formData.append('name', body.name);
+  formData.append('latin_name', body.latin_name);
   formData.append('price', body.price);
-  formData.append('owner', body.owner);
+  formData.append('currency', body.currency);
+  formData.append('alcohol', body.alcohol);
+  formData.append('details', body.details);
+  // formData.append('images', file);
+  file && formData.set('images', file);
+  // formData.append('size', body.size);
+
+  return await axios.get(`${BASE_URL}${pathParams}`, formData, {
+    headers: {
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET,POST,PUT,PATCH,DELETE,OPTIONS',
+      'Access-Control-Expose-Headers': 'Content-Range',
+    },
+  });
+}
+
+async function updateServiceData(pathParams, body, file) {
+  const formData = new FormData();
+  formData.append('article', body.article);
+  formData.append('product', body.product);
+  formData.append('category', body.category);
+  formData.append('name', body.name);
+  formData.append('latin_name', body.latin_name);
+  formData.append('price', body.price);
+  formData.append('currency', body.currency);
+  formData.append('alcohol', body.alcohol);
+  formData.append('details', body.details);
+  // formData.append('images', file);
+  file && formData.set('images', file);
+  // formData.append('size', body.size);
 
   return await axios.patch(`${BASE_URL}${pathParams}`, formData, {
     headers: {
@@ -77,61 +109,25 @@ async function updateServiceData(pathParams, body) {
     },
   });
 }
-async function createServiceData(pathParams, body) {
+
+async function createServiceData(pathParams, body, file) {
   const formData = new FormData();
-  formData.append('subject', body.subject);
-  formData.append('time', body.time);
-  formData.append('location', body.location);
+  formData.append('article', body.article);
+  formData.append('product', body.product);
+  formData.append('category', body.category);
+  formData.append('name', body.name);
+  formData.append('latin_name', body.latin_name);
   formData.append('price', body.price);
-  formData.append('owner', body.owner);
-  formData.append('Id', body.id);
+  formData.append('currency', body.currency);
+  formData.append('alcohol', body.alcohol);
+  formData.append('details', body.details);
+  // formData.append('images', file);
+  file && formData.set('images', file);
+  // formData.append('size', body.size);
 
   return await axios.post(`${BASE_URL}${pathParams}`, formData, {
     headers: {
       'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'GET,POST,PUT,PATCH,DELETE,OPTIONS',
-      'Access-Control-Expose-Headers': 'Content-Range',
-    },
-  });
-}
-
-async function createOwnerData(pathParams, body, file) {
-  const formData = new FormData();
-  file && formData.set('avatar', file);
-  formData.append('startHour', body.startHour);
-  formData.append('endHour', body.endHour);
-  formData.append('designation', body.designation);
-  formData.append('workDays', body.workDays);
-  formData.append('groupId', body.groupId);
-  formData.append('ownerColor', body.ownerColor);
-  formData.append('ownerText', body.ownerText);
-  formData.append('Id', body.id);
-
-  return await axios.post(`${BASE_URL}${pathParams}`, formData, {
-    headers: {
-      'Content-Type': 'multipart/form-data',
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'GET,POST,PUT,PATCH,DELETE,OPTIONS',
-      'Access-Control-Expose-Headers': 'Content-Range',
-    },
-  });
-}
-
-async function updateOwnerData(pathParams, body, file) {
-  const formData = new FormData();
-  file && formData.set('avatar', file);
-  formData.append('ownerText', body.ownerText);
-  formData.append('ownerColor', body.ownerColor);
-  formData.append('designation', body.designation);
-  formData.append('workDays', body.workDays);
-  formData.append('startHour', body.startHour);
-  formData.append('endHour', body.endHour);
-  formData.append('groupId', body.groupId);
-
-  return await axios.patch(`${BASE_URL}${pathParams}`, formData, {
-    headers: {
-      'Content-Type': 'multipart/form-data',
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'GET,POST,PUT,PATCH,DELETE,OPTIONS',
       'Access-Control-Expose-Headers': 'Content-Range',
@@ -184,29 +180,31 @@ createUserData.propTypes = {
   file: PropTypes.string,
 };
 
+fetchServiceData.propTypes = {
+  pathParams: PropTypes.string.isRequired,
+  formData: PropTypes.string.isRequired,
+  file: PropTypes.string,
+};
+
 updateServiceData.propTypes = {
   pathParams: PropTypes.string.isRequired,
   formData: PropTypes.string.isRequired,
+  file: PropTypes.string,
 };
 
 createServiceData.propTypes = {
   pathParams: PropTypes.string.isRequired,
   formData: PropTypes.string.isRequired,
-};
-
-createOwnerData.propTypes = {
-  pathParams: PropTypes.string.isRequired,
-  formData: PropTypes.string.isRequired,
+  file: PropTypes.string,
 };
 
 export {
   fetchData,
+  fetchServiceData,
   updateUserData,
   createUserData,
-  updateOwnerData,
   createServiceData,
   updateServiceData,
   deleteData,
-  createOwnerData,
   changePassword,
 };

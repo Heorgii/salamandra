@@ -6,6 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { persistor, store } from './redux/store';
 import { App } from 'components/App';
 import { GlobalStyle } from 'components/baseStyles/GlobalStyle';
+import { ThemeStatus } from 'components/ThemeStatus/ThemeProvider';
 
 window.global = {
   BASE_URL: 'http://localhost:3030/api',
@@ -21,8 +22,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Provider store={store}>
       <PersistGate loading={'Loading'} persistor={persistor}>
         <BrowserRouter basename="salamandra">
-          <GlobalStyle />
-          <App />
+          <ThemeStatus>
+            <GlobalStyle />
+            <App />
+          </ThemeStatus>
         </BrowserRouter>
       </PersistGate>
     </Provider>

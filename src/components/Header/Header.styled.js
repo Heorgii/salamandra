@@ -8,6 +8,10 @@ export const Hero = styled.div`
   align-items: center; */
   position: relative;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
 `;
 
 export const TitleBox = styled.div`
@@ -38,13 +42,6 @@ export const TitleDiscr = styled.p`
   font-style: normal;
   font-weight: 400;
   text-align: center;
-`;
-
-export const ImgBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
 `;
 
 export const HeroImg = styled.img`

@@ -10,7 +10,7 @@ const Container = styled.div`
 `;
 
 const Subtitle = styled.h2`
-  color: ${theme.colors.braun};
+  color: ${props => props.theme.orange};
   font-family: ${theme.fonts[2]};
   font-size: ${theme.fontSizes.large};
   font-style: normal;
@@ -23,7 +23,7 @@ const Subtitle = styled.h2`
 `;
 
 const SubtitleText = styled.h3`
-  color: ${theme.colors.braun};
+  color: ${props => props.theme.orange};
   font-family: ${theme.fonts[2]};
   font-size: ${theme.fontSizes.mediumPlus};
   font-style: normal;

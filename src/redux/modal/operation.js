@@ -1,4 +1,5 @@
 import { modalSlice } from './slice';
+
 export const addModal = b => dispatch => {
   dispatch(modalSlice.actions.addModal({ ...b }));
 };
