@@ -30,6 +30,8 @@ const theme = {
     extraXL: '36px',
     extraXXL: '64px',
   },
+  transition: ['all 0.25s ease-in'],
+  scale: ['scale(1.15)'],
 };
 
 export default theme;
