@@ -6,7 +6,7 @@ import {
   MenuList,
   // MenuTitle,
   // MenuSection,
-  MenuBox,
+  // MenuBox,
   InfoBox,
   TitleItem,
   AlcogolItem,
