@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import {
   Nav,
   NavBox,
@@ -8,7 +8,7 @@ import {
 } from './Navigation.styled';
 
 export const Navigation = () => {
-  const [scrollX, setScrollX] = useState(0);
+  const [, setScrollX] = useState(0);//scrollX
 
   const handleSliderScroll = e => {
     const container = e.target;
