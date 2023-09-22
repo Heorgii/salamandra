@@ -5,7 +5,7 @@ import {
   MenuListItem,
   MenuList,
   // MenuTitle,
-  // MenuSection,
+  MenuSection,
   // MenuBox,
   InfoBox,
   TitleItem,
@@ -52,7 +52,7 @@ export const Menu = () => {
 
   return (
     <Container>
-      {/* <MenuSection> */}
+      <MenuSection>
       {catalog.map(it => (
         <div key={uuidv4()}>
           <Subtitle>{it}</Subtitle>
@@ -101,7 +101,7 @@ export const Menu = () => {
       ))}
       {isLoading ? onLoading() : onLoaded()}
       {error && <h1>{error}</h1>}
-      {/* </MenuSection> */}
+      </MenuSection>
     </Container>
   );
 };

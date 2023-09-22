@@ -12,8 +12,6 @@ const MenuSection = styled.section`
   justify-content: center;
   align-items: center;
   position: relative;
-  margin: 0 auto;
-  padding: 60px 0;
   width: 100%;
 `;
 
