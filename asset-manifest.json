@@ -1,19 +1,29 @@
 {
   "files": {
     "main.css": "/salamandra/static/css/main.7cda0caf.css",
-    "main.js": "/salamandra/static/js/main.4670303a.js",
-    "static/media/fon3Desk.png": "/salamandra/static/media/fon3Desk.9674d6a143ab8db7dd8b.png",
-    "static/media/fon2Desk.png": "/salamandra/static/media/fon2Desk.28c8f7558b1ac1dcec9a.png",
-    "static/media/fon2.png": "/salamandra/static/media/fon2.a81fbfd31877fbd77e10.png",
-    "static/media/fon3.png": "/salamandra/static/media/fon3.ba9304edc71143ace8d9.png",
+    "main.js": "/salamandra/static/js/main.66a9cd4d.js",
+    "static/media/fonMob.png": "/salamandra/static/media/fonMob.d7b15c415580869b09e2.png",
+    "static/media/fonMob.webp": "/salamandra/static/media/fonMob.d7b15c415580869b09e2.webp",
+    "static/media/fonMob@2x.png": "/salamandra/static/media/fonMob@2x.d7b15c415580869b09e2.png",
+    "static/media/fonMob@2x.webp": "/salamandra/static/media/fonMob@2x.d7b15c415580869b09e2.webp",
+    "static/media/fon.webp": "/salamandra/static/media/fon.0a077d044563b4643106.webp",
+    "static/media/fon@2x.webp": "/salamandra/static/media/fon@2x.0a077d044563b4643106.webp",
+    "static/media/fonPng.png": "/salamandra/static/media/fonPng.0a077d044563b4643106.png",
+    "static/media/fonPng@2x.png": "/salamandra/static/media/fonPng@2x.0a077d044563b4643106.png",
     "static/media/salamandraDesk.png": "/salamandra/static/media/salamandraDesk.b8af246c004511a9ad5d.png",
+    "static/media/salamandraDesk.webp": "/salamandra/static/media/salamandraDesk.b8af246c004511a9ad5d.webp",
+    "static/media/salamandraDesk@2x.png": "/salamandra/static/media/salamandraDesk@2x.b8af246c004511a9ad5d.png",
+    "static/media/salamandraDesk@2x.webp": "/salamandra/static/media/salamandraDesk@2x.b8af246c004511a9ad5d.webp",
     "static/media/salamandra.png": "/salamandra/static/media/salamandra.2608238304caaf1d882a.png",
+    "static/media/salamandra.webp": "/salamandra/static/media/salamandra.2608238304caaf1d882a.webp",
+    "static/media/salamandra@2x.png": "/salamandra/static/media/salamandra@2x.2608238304caaf1d882a.png",
+    "static/media/salamandra@2x.webp": "/salamandra/static/media/salamandra@2x.2608238304caaf1d882a.webp",
     "index.html": "/salamandra/index.html",
     "main.7cda0caf.css.map": "/salamandra/static/css/main.7cda0caf.css.map",
-    "main.4670303a.js.map": "/salamandra/static/js/main.4670303a.js.map"
+    "main.66a9cd4d.js.map": "/salamandra/static/js/main.66a9cd4d.js.map"
   },
   "entrypoints": [
     "static/css/main.7cda0caf.css",
-    "static/js/main.4670303a.js"
+    "static/js/main.66a9cd4d.js"
   ]
 }
