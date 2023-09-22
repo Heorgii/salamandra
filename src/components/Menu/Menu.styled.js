@@ -52,7 +52,7 @@ const MenuListItem = styled.li`
   align-items: start;
   list-style: none;
   width: 180px;
-  height: 450px;
+  /* height: 450px; */
   background: ${theme.colors.white};
   -webkit-box-shadow: 3px 2px 4px 0px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 3px 2px 4px 0px rgba(0, 0, 0, 0.5);

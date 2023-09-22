@@ -32,7 +32,7 @@ export const NavList = styled.ul`
 
   @media screen and (min-width: ${theme.breakpoints.desktop}) {
     padding-bottom: 15px;
-    padding-top: 30px;
+    padding-top: 25px;
   }
 
   @media screen and (min-width: 1637px) {

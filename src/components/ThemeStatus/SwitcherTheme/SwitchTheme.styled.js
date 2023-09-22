@@ -65,7 +65,7 @@ const SwitcherWrapper = styled.div`
   align-items: center;
   animation: ${fadeInTopAnimation} 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 
-  position: fixed;
+  position: absolute;
   top: 300px;
   right: 55px;
   height: auto;
