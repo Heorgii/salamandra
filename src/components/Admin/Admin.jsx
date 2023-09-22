@@ -6,6 +6,7 @@ import { addModal } from 'redux/modal/operation';
 import { addReload } from 'redux/reload/slice';
 import { reloadValue } from 'redux/reload/selectors';
 import { fetchData, deleteData } from 'services/APIservice';
+import { PaginationBlock } from 'helpers/Pagination/Pagination';
 import { onLoading, onLoaded } from 'helpers/Loader/Loader';
 import { onFetchError } from 'helpers/Messages/NotifyMessages';
 import { EditModal } from 'components/Admin/Modal/EditModal';
@@ -21,11 +22,8 @@ import {
   TableHead,
   TableRow,
 } from './Admin.styled';
-import { PaginationBlock } from 'helpers/Pagination/Pagination';
 
 export const Admin = () => {
-  //   const { BASE_URL_IMG } = window.global;
-
   const [positions, setPositions] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);

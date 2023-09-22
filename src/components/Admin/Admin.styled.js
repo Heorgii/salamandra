@@ -4,7 +4,10 @@ import { Container } from 'components/baseStyles/CommonStyle.styled';
 
 export const AdminContainer = styled(Container)`
   position: relative;
+
+  margin-top: 30px;
   padding: 0 20px;
+
   overflow-x: scroll;
 `;
 
