@@ -9,11 +9,12 @@ export const Backdrop = styled.div`
   z-index: 15;
 
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 
   width: 100%;
   height: 100%;
+  padding-top: 100px;
 
   background: rgba(0, 0, 0, 0.2);
 
@@ -66,12 +67,6 @@ export const FormList = styled.div`
   align-content: space-between;
   align-items: stretch;
   gap: 5px;
-
-  @media screen and (min-width: ${theme.breakpoints.tablet}) {
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-items: flex-start;
-  }
 `;
 
 export const FormField = styled.div`
@@ -80,10 +75,6 @@ export const FormField = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: 3px;
-
-  @media screen and (min-width: ${theme.breakpoints.tablet}) {
-    width: 45%;
-  }
 `;
 
 export const FormLabel = styled.label`
