@@ -2,10 +2,10 @@ import styled from 'styled-components';
 import theme from 'components/baseStyles/Variables.styled';
 
 const Container = styled.div`
-  padding: 0 110px;
+  padding: 0 110px 25px;
 
   @media screen and (min-width: ${theme.breakpoints.desktop}) {
-    padding: 15px 238px;
+    padding: 15px 238px 50px;
   }
 `;
 
@@ -17,6 +17,7 @@ const Subtitle = styled.h2`
   font-weight: 700;
   line-height: normal;
   margin: 25px 0;
+  text-transform: capitalize;
 
   @media screen and (min-width: ${theme.breakpoints.desktop}) {
     font-size: ${theme.fontSizes.extra};
