@@ -1,5 +1,6 @@
 import 'modern-normalize';
 import { createGlobalStyle } from 'styled-components';
+import theme from './Variables.styled';
 
 export const GlobalStyle = createGlobalStyle`
 body {
