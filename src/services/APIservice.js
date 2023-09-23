@@ -71,9 +71,10 @@ async function fetchServiceData(pathParams, body, file) {
   formData.append('currency', body.currency);
   formData.append('alcohol', body.alcohol);
   formData.append('details', body.details);
-  // formData.append('images', file);
   file && formData.set('images', file);
-  // formData.append('size', body.size);
+  formData.append('size', body.size);
+  formData.append('active', body.active);
+  formData.append('admin', body.admin);
 
   return await axios.get(`${BASE_URL}${pathParams}`, formData, {
     headers: {
@@ -96,9 +97,11 @@ async function updateServiceData(pathParams, body, file) {
   formData.append('currency', body.currency);
   formData.append('alcohol', body.alcohol);
   formData.append('details', body.details);
-  // formData.append('images', file);
   file && formData.set('images', file);
-  // formData.append('size', body.size);
+  // formData.append('images', body.images);
+  formData.append('size', body.size);
+  formData.append('active', body.active);
+  formData.append('admin', body.admin);
 
   return await axios.patch(`${BASE_URL}${pathParams}`, formData, {
     headers: {
@@ -121,9 +124,11 @@ async function createServiceData(pathParams, body, file) {
   formData.append('currency', body.currency);
   formData.append('alcohol', body.alcohol);
   formData.append('details', body.details);
-  // formData.append('images', file);
   file && formData.set('images', file);
-  // formData.append('size', body.size);
+  // formData.append('images', body.images);
+  formData.append('size', body.size);
+  formData.append('active', body.active);
+  formData.append('admin', body.admin);
 
   return await axios.post(`${BASE_URL}${pathParams}`, formData, {
     headers: {

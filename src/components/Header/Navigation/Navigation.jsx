@@ -19,6 +19,8 @@ export const Navigation = () => {
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
+  const currentUrl = window.location.href.split('#')[0];
+
   const handleSliderScroll = e => {
     const container = e.target;
     const scrollLeft = container.scrollLeft;
@@ -69,39 +71,11 @@ export const Navigation = () => {
           {error && onFetchError('Whoops, something went wrong')}
           {group.map((item, i) => (
             <NavListItem key={i}>
-              <NavListItemLink href={`/salamandra#${item}`} aria-label={item}>
+              <NavListItemLink href={`${currentUrl}#${item}`} aria-label={item}>
                 {item}
               </NavListItemLink>
             </NavListItem>
           ))}
-
-          {/* <NavListItem>
-           <NavListItemLink href="">Коктейлі</NavListItemLink>
-          </NavListItem>
-         
-          <NavListItem>
-           <NavListItemLink href="">Алкогольні напої</NavListItemLink>
-          </NavListItem>
-         
-          <NavListItem>
-           <NavListItemLink href="">Горячі вина та Гроги</NavListItemLink>
-          </NavListItem>
-         
-          <NavListItem>
-           <NavListItemLink href="">Фреска, Фрапе, Шейки</NavListItemLink>
-          </NavListItem>
-         
-          <NavListItem>
-            <NavListItemLink href="">Лимонади та Холодний чай</NavListItemLink>
-          </NavListItem>
-         
-          <NavListItem>
-           <NavListItemLink href="">Кава</NavListItemLink>
-          </NavListItem>
-         
-          <NavListItem>
-           <NavListItemLink href="">Чай</NavListItemLink>
-          </NavListItem> */}
         </NavList>
       </Nav>
     </NavBox>

@@ -65,8 +65,8 @@ export const Menu = () => {
     })();
   }, []);
 
-  console.log('catalog', catalog);
-  console.log('group', group);
+  // console.log('catalog', catalog);
+  // console.log('group', group);
 
   return (
     <Container>
@@ -80,7 +80,8 @@ export const Menu = () => {
                 <MenuList>
                   {menu.map(
                     item =>
-                      item.category === cat && (
+                      item.category === cat &&
+                      item?.active && (
                         <MenuListItem key={uuidv4()}>
                           {item.images !== 'none' && item.images && (
                             <Img
