@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { ReactComponent as Logout } from 'images/svg/logout.svg';
 import theme from 'components/baseStyles/Variables.styled';
-import { Container } from 'components/baseStyles/CommonStyle.styled';
 
-export const AdminContainer = styled(Container)`
+
+export const AdminContainer = styled.div`
   position: relative;
   padding: 20px;
   overflow-x: scroll;
