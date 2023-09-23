@@ -92,11 +92,6 @@ const InfoBox = styled.div`
   padding: 5px;
 `;
 
-const DivForName = styled.ul`
-  width: 100%;
-  /* height: 60px; */
-`;
-
 const TitleItem = styled.h3`
   font-family: ${theme.fonts[1]};
   font-size: ${theme.fontSizes.medium};
@@ -104,6 +99,11 @@ const TitleItem = styled.h3`
   font-weight: 700;
   line-height: normal;
   color: ${theme.colors.black};
+`;
+
+const DivForName = styled.ul`
+  width: 100%;
+  /* height: 60px; */
 `;
 
 const AlcogolItem = styled.li`
@@ -130,6 +130,7 @@ const InfoItem = styled.div`
 const PriceItem = styled.div`
   width: 50%;
 `;
+
 const DetailsItem = styled.div`
   width: 50%;
   display: flex;
@@ -137,7 +138,8 @@ const DetailsItem = styled.div`
   gap: 3px;
   align-items: end;
 `;
-const DetailsText = styled.p`
+
+const DetailsText = styled.li`
   color: ${theme.colors.gray};
   font-family: ${theme.fonts[1]};
   font-size: ${theme.fontSizes.small};
@@ -146,6 +148,7 @@ const DetailsText = styled.p`
   text-align: right;
   line-height: normal;
 `;
+
 const DetailsTitle = styled.p`
   color: ${theme.colors.black};
   font-family: ${theme.fonts[1]};
@@ -155,13 +158,14 @@ const DetailsTitle = styled.p`
   line-height: normal;
   text-transform: capitalize;
 `;
-const Details = styled.div`
+
+const Details = styled.ul`
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 3px;
   align-items: end;
-  padding: 10px;
+  padding: 0 10px 10px 10px;
 `;
 
 export {

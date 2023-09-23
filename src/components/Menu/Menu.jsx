@@ -21,7 +21,7 @@ import {
 import { fetchData } from 'services/APIservice';
 import { onFetchError } from 'helpers/Messages/NotifyMessages';
 import { onLoaded, onLoading } from 'helpers/Loader/Loader';
-import nophoto from '../../images/other/no_photo.jpg';
+// import nophoto from '../../images/other/no_photo.jpg';
 import { Container } from 'components/baseStyles/CommonStyle.styled';
 
 export const Menu = () => {
@@ -108,10 +108,10 @@ export const Menu = () => {
                                 </DetailsTitle>
                               </PriceItem>
                               <DetailsItem>
-                                {item.details[0] !== '' &&
+                                {/* {item.details[0] !== '' &&
                                   item.details[0] !== undefined && (
                                     <DetailsTitle>Детальіше</DetailsTitle>
-                                  )}
+                                  )} */}
                               </DetailsItem>
                             </InfoItem>
                             <Details>
