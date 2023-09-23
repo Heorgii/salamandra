@@ -35,7 +35,7 @@ export const Menu = ({catalog, group, menu, isLoading, setIsLoading, error}) => 
                 <MenuList>
                   {menu.map(
                     item =>
-                      item.category === cat && (
+                    (item.category === cat && item?.active) && (
                         <MenuListItem key={uuidv4()}>
                           {item.images !== 'none' && item.images && (
                             <Img

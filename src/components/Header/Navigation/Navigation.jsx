@@ -19,6 +19,8 @@ export const Navigation = ({catalog, group, menu, isLoading, setIsLoading, error
     setScrollX(scrollLeft);
   };
 
+  const currentUrl = window.location.href.split('#')[0];
+
   useEffect(() => {
     const handleScroll = () => {
       const nav = document.getElementById('nav');
@@ -43,7 +45,7 @@ export const Navigation = ({catalog, group, menu, isLoading, setIsLoading, error
           {error && onFetchError('Whoops, something went wrong')}
           {group.map((item, i) => (
             <NavListItem key={i}>
-              <NavListItemLink href={`/salamandra#${item}`} aria-label={item}>
+              <NavListItemLink href={`${currentUrl}#${item}`} aria-label={item}>
                 {item}
               </NavListItemLink>
             </NavListItem>
