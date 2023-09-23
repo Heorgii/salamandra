@@ -1,4 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { SwitchTheme } from 'components/ThemeStatus/SwitcherTheme/SwitchTheme';
+import { fetchData } from 'services/APIservice';
+import { onFetchError } from 'helpers/Messages/NotifyMessages';
+import { onLoaded, onLoading } from 'helpers/Loader/Loader';
 import {
   Nav,
   NavBox,
@@ -6,11 +10,14 @@ import {
   NavListItem,
   NavListItemLink,
 } from './Navigation.styled';
-import { SwitchTheme } from 'components/ThemeStatus/SwitcherTheme/SwitchTheme';
 
 export const Navigation = () => {
   const [, setScrollX] = useState(0); //scrollX
   const [isFixed, setIsFixed] = useState(false);
+
+  const [group, setGroup] = useState([]);
+  const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSliderScroll = e => {
     const container = e.target;
@@ -33,39 +40,68 @@ export const Navigation = () => {
     };
   }, []);
 
+  useEffect(() => {
+    (async function getData() {
+      setIsLoading(true);
+      try {
+        const { data } = await fetchData(`/menu`);
+        if (!data) {
+          return onFetchError('Whoops, something went wrong');
+        }
+        const listOfGroup = data.map(item => item.product);
+        let uniqueGroup = [...new Set(listOfGroup)];
+        setGroup(uniqueGroup);
+      } catch (error) {
+        setError(error);
+      } finally {
+        setIsLoading(false);
+      }
+    })();
+  }, []);
+
   return (
     <NavBox id="nav">
       <SwitchTheme />
 
       <Nav onScroll={handleSliderScroll} isFixed={isFixed}>
         <NavList>
-          <NavListItem>
-            <NavListItemLink href="">Коктейлі</NavListItemLink>
-          </NavListItem>
+          {isLoading ? onLoading() : onLoaded()}
+          {error && onFetchError('Whoops, something went wrong')}
+          {group.map((item, i) => (
+            <NavListItem key={i}>
+              <NavListItemLink href={`/salamandra#${item}`} aria-label={item}>
+                {item}
+              </NavListItemLink>
+            </NavListItem>
+          ))}
 
-          <NavListItem>
-            <NavListItemLink href="">Алкогольні напої</NavListItemLink>
+          {/* <NavListItem>
+           <NavListItemLink href="">Коктейлі</NavListItemLink>
           </NavListItem>
-
+         
           <NavListItem>
-            <NavListItemLink href="">Горячі вина та Гроги</NavListItemLink>
+           <NavListItemLink href="">Алкогольні напої</NavListItemLink>
           </NavListItem>
-
+         
           <NavListItem>
-            <NavListItemLink href="">Фреска, Фрапе, Шейки</NavListItemLink>
+           <NavListItemLink href="">Горячі вина та Гроги</NavListItemLink>
           </NavListItem>
-
+         
+          <NavListItem>
+           <NavListItemLink href="">Фреска, Фрапе, Шейки</NavListItemLink>
+          </NavListItem>
+         
           <NavListItem>
             <NavListItemLink href="">Лимонади та Холодний чай</NavListItemLink>
           </NavListItem>
-
+         
           <NavListItem>
-            <NavListItemLink href="">Кава</NavListItemLink>
+           <NavListItemLink href="">Кава</NavListItemLink>
           </NavListItem>
-
+         
           <NavListItem>
-            <NavListItemLink href="">Чай</NavListItemLink>
-          </NavListItem>
+           <NavListItemLink href="">Чай</NavListItemLink>
+          </NavListItem> */}
         </NavList>
       </Nav>
     </NavBox>

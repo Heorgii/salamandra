@@ -12,7 +12,7 @@ const MenuSection = styled.section`
 
 const MenuTitle = styled.h2`
   /* color: ${theme.colors.braun}; */
- color: ${props => props.theme.orange};
+  color: ${props => props.theme.orange};
   font-family: ${theme.fonts[2]};
   font-size: ${theme.fontSizes.large};
   font-style: normal;
@@ -21,9 +21,10 @@ const MenuTitle = styled.h2`
   text-transform: uppercase;
   margin: 25px 0;
 `;
+
 const MenuSubTitle = styled(MenuTitle)`
   text-transform: lowercase;
-  text-align: center;
+  text-align: start;
   &:first-letter {
     text-transform: capitalize;
   }
@@ -32,7 +33,7 @@ const MenuSubTitle = styled(MenuTitle)`
 const MenuList = styled.ul`
   display: grid;
   grid-template-columns: 1fr;
-  overflow: hidden;
+  /* overflow: hidden; */
   gap: 25px;
   margin-top: 20px;
   justify-items: center;
@@ -48,24 +49,42 @@ const MenuList = styled.ul`
 
 const MenuListItem = styled.li`
   display: flex;
-  flex-direction: column;
+  flex-direction: row-reverse;
   justify-content: start;
   align-items: start;
   list-style: none;
-  width: 230px;
+
+  width: 100%;
+  max-width: 350px;
+  padding: 4px;
+
   border-radius: 20px;
   /* height: 450px; */
   background: ${theme.colors.white};
   -webkit-box-shadow: 3px 2px 4px 0px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 3px 2px 4px 0px rgba(0, 0, 0, 0.5);
   box-shadow: 3px 2px 4px 0px rgba(0, 0, 0, 0.5);
-  margin-right: 2px;
+
+  /* margin-right: 2px; */
+
+  @media screen and (min-width: ${theme.breakpoints.tablet}) {
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    width: 220px;
+  }
 `;
 
 const Img = styled.img`
-  width: 230px;
-  height: 230px;
+  width: 150px;
+  height: 150px;
+  min-width: 150px;
   border-radius: 20px;
+
+  @media screen and (min-width: ${theme.breakpoints.tablet}) {
+    width: 220px;
+    height: 230px;
+  }
 `;
 
 const InfoBox = styled.div`
@@ -73,12 +92,7 @@ const InfoBox = styled.div`
   padding: 5px;
 `;
 
-const DivForName = styled.div`
-  width: 100%;
-  height: 60px;
-`;
-
-const TitleItem = styled.h4`
+const TitleItem = styled.h3`
   font-family: ${theme.fonts[1]};
   font-size: ${theme.fontSizes.medium};
   font-style: normal;
@@ -87,7 +101,12 @@ const TitleItem = styled.h4`
   color: ${theme.colors.black};
 `;
 
-const AlcogolItem = styled.h5`
+const DivForName = styled.ul`
+  width: 100%;
+  /* height: 60px; */
+`;
+
+const AlcogolItem = styled.li`
   font-family: ${theme.fonts[1]};
   font-size: ${theme.fontSizes.small};
   font-style: normal;
@@ -95,15 +114,15 @@ const AlcogolItem = styled.h5`
   line-height: normal;
   padding-left: 20px;
   color: ${theme.colors.black};
+
   &:nth-of-type(1) {
     margin-top: 5px;
   }
-
 `;
 
 const InfoItem = styled.div`
   width: 100%;
-  padding-top: 21px;
+  margin-top: 20px;
   display: flex;
   flex-direction: row;
   justify-content: start;
@@ -111,6 +130,7 @@ const InfoItem = styled.div`
 const PriceItem = styled.div`
   width: 50%;
 `;
+
 const DetailsItem = styled.div`
   width: 50%;
   display: flex;
@@ -118,7 +138,8 @@ const DetailsItem = styled.div`
   gap: 3px;
   align-items: end;
 `;
-const DetailsText = styled.p`
+
+const DetailsText = styled.li`
   color: ${theme.colors.gray};
   font-family: ${theme.fonts[1]};
   font-size: ${theme.fontSizes.small};
@@ -127,6 +148,7 @@ const DetailsText = styled.p`
   text-align: right;
   line-height: normal;
 `;
+
 const DetailsTitle = styled.p`
   color: ${theme.colors.black};
   font-family: ${theme.fonts[1]};
@@ -136,13 +158,14 @@ const DetailsTitle = styled.p`
   line-height: normal;
   text-transform: capitalize;
 `;
-const Details = styled.div`
+
+const Details = styled.ul`
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 3px;
   align-items: end;
-  padding: 10px;
+  padding: 0 10px 10px 10px;
 `;
 
 export {
