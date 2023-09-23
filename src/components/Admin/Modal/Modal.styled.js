@@ -36,7 +36,7 @@ export const Modal = styled.div`
 
   background-color: ${theme.colors.white};
   border: 1px solid ${theme.colors.opacity};
-  border-radius: 20px;
+  border-radius: 5px;
   box-shadow: ${theme.colors.opacity} 7px 4px 14px;
 
   @media screen and (min-width: ${theme.breakpoints.tablet}) {

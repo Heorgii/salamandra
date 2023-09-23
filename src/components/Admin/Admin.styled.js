@@ -1,14 +1,18 @@
 import styled from 'styled-components';
+import { ReactComponent as Logout } from 'images/svg/logout.svg';
 import theme from 'components/baseStyles/Variables.styled';
 import { Container } from 'components/baseStyles/CommonStyle.styled';
 
 export const AdminContainer = styled(Container)`
   position: relative;
-
-  margin-top: 30px;
-  padding: 0 20px;
-
+  padding: 20px;
   overflow-x: scroll;
+`;
+
+export const Heading = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
 `;
 
 export const Table = styled.table`
@@ -171,4 +175,56 @@ export const LearnMoreBtn = styled.button`
   &:focus {
     box-shadow: ${theme.colors.grey} 3px 3px 5px inset;
   }
+`;
+
+export const LogoutBtn = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: ${theme.fonts[2]};
+  font-size: ${theme.fontSizes.extraSmall};
+  font-style: normal;
+  font-weight: 400;
+  text-align: center;
+  /* text-transform: uppercase; */
+  text-decoration: none;
+  line-height: normal;
+
+  color: ${theme.colors.gray};
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  &:hover,
+  &:focus,
+  &:hover > svg,
+  &:focus > svg {
+    color: ${theme.colors.braun};
+    fill: ${theme.colors.braun};
+    stroke: ${theme.colors.braun};
+    transition: all 150ms linear;
+  }
+`;
+
+export const LogoutIcon = styled(Logout)`
+  width: 16px;
+  height: 16px;
+  stroke: ${theme.colors.gray};
+  transition: all 150ms linear;
+
+  &:hover,
+  :focus {
+    fill: ${theme.colors.white};
+    stroke: ${theme.colors.white};
+  }
+`;
+
+export const LogoutLabel = styled.span`
+  font-family: ${theme.fonts[2]};
+  font-size: ${theme.fontSizes.extraSmall};
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  margin-left: 8px;
+  transition: all 150ms linear;
 `;

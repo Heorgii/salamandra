@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import theme from 'components/baseStyles/Variables.styled';
 
 const Container = styled.div`
-  padding: 0 110px 25px;
+  padding: 0 25px;
 
   @media screen and (min-width: ${theme.breakpoints.desktop}) {
     padding: 15px 238px 50px;

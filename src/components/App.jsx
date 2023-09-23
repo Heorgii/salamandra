@@ -9,8 +9,8 @@ import { refreshUser } from 'redux/auth/operations';
 import { selectIsRefreshing, getPermission } from 'redux/auth/selectors';
 import LandingPage from 'pages/LandingPage';
 import AdminPage from 'pages/AdminPage';
-import { Register } from './Auth/Register';
-import { Login } from './Auth/Login';
+import { Register } from './Auth/Forms/Register';
+import { Login } from './Auth/Forms/Login';
 
 export const App = () => {
   const dispatch = useDispatch();

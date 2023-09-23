@@ -8,7 +8,7 @@ body {
   font-family: 'Kumar One', cursive;
   font-family: 'Montserrat', sans-serif;
 
-  background-color: ${(props) => props.theme.white};
+  background-color: ${props => props.theme.white};
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
