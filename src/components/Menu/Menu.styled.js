@@ -1,11 +1,6 @@
 import styled from "styled-components";
 import theme from "components/baseStyles/Variables.styled";
 
-const MenuBox = styled.div`
-  padding-top: 200px;
-  /* overflow-x: hidden; */
-`;
-
 const MenuSection = styled.section`
   display: flex;
   flex-direction: column;
@@ -22,8 +17,15 @@ const MenuTitle = styled.h2`
   font-style: normal;
   font-weight: 700;
   line-height: 29.26px;
-  text-transform: capitalize;
+  text-transform: uppercase;
   margin: 25px 0;
+`;
+const MenuSubTitle = styled(MenuTitle)`
+  text-transform: lowercase;
+  text-align: center;
+  &:first-letter {
+    text-transform: capitalize;
+  }
 `;
 
 const MenuList = styled.ul`
@@ -35,11 +37,11 @@ const MenuList = styled.ul`
   justify-items: center;
 
   @media screen and (min-width: ${theme.breakpoints.tablet}) {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 
   @media screen and (min-width: ${theme.breakpoints.desktop}) {
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 `;
 
@@ -49,7 +51,7 @@ const MenuListItem = styled.li`
   justify-content: start;
   align-items: start;
   list-style: none;
-  width: 180px;
+  width: 230px;
   /* height: 450px; */
   background: ${theme.colors.white};
   -webkit-box-shadow: 3px 2px 4px 0px rgba(0, 0, 0, 0.5);
@@ -59,75 +61,101 @@ const MenuListItem = styled.li`
 `;
 
 const Img = styled.img`
-  width: 180px;
-  height: 200px;
+  width: 230px;
+  height: 230px;
 `;
 
 const InfoBox = styled.div`
-width: 100%;
-padding: 5px;
+  width: 100%;
+  padding: 5px;
+`;
+
+const DivForName = styled.div`
+  width: 100%;
+  height: 60px;
 `;
 
 const TitleItem = styled.h4`
-font-family: ${theme.fonts[1]};
-font-size: ${theme.fontSizes.medium};
-font-style: normal;
-font-weight: 700;
-line-height: normal;
-color: ${theme.colors.black};
+  font-family: ${theme.fonts[1]};
+  font-size: ${theme.fontSizes.medium};
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  color: ${theme.colors.black};
 `;
 
 const AlcogolItem = styled.h5`
-font-family: ${theme.fonts[1]};
-font-size: ${theme.fontSizes.small};
-font-style: normal;
-font-weight: 700;
-line-height: normal;
-color: ${theme.colors.black};
+  font-family: ${theme.fonts[1]};
+  font-size: ${theme.fontSizes.small};
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  padding-left: 20px;
+  color: ${theme.colors.black};
+  &:nth-of-type(1) {
+    margin-top: 5px;
+  }
 `;
 
 const InfoItem = styled.div`
-width: 100%;
-padding-top: 21px;
-display: flex;
-flex-direction: row;
-justify-content: start;
+  width: 100%;
+  padding-top: 21px;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
 `;
 const PriceItem = styled.div`
-width: 50%;
+  width: 50%;
 `;
 const DetailsItem = styled.div`
-width: 50%;
-display: flex;
-flex-direction: column;
-gap: 3px;
-align-items: end;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  align-items: end;
 `;
 const DetailsText = styled.p`
-color: ${theme.colors.gray};
-font-family: ${theme.fonts[1]};
-font-size: ${theme.fontSizes.extraSmall};;
-font-style: normal;
-font-weight: 400;
-text-align: right;
-line-height: normal;
+  color: ${theme.colors.gray};
+  font-family: ${theme.fonts[1]};
+  font-size: ${theme.fontSizes.small};
+  font-style: normal;
+  font-weight: 400;
+  text-align: right;
+  line-height: normal;
 `;
 const DetailsTitle = styled.p`
-color: ${theme.colors.black};
-font-family: ${theme.fonts[1]};
-font-size: ${theme.fontSizes.small};;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-text-transform: capitalize;
+  color: ${theme.colors.black};
+  font-family: ${theme.fonts[1]};
+  font-size: ${theme.fontSizes.medium};
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: capitalize;
 `;
 const Details = styled.div`
-width: 100%;
-display: flex;
-flex-direction: column;
-gap: 3px;
-align-items: end;
-padding: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  align-items: end;
+  padding: 10px;
 `;
 
-export { Img, MenuListItem, MenuList, MenuTitle, MenuSection, MenuBox, InfoBox, TitleItem, AlcogolItem, InfoItem, PriceItem, DetailsItem, DetailsText, DetailsTitle, Details};
+export {
+  Img,
+  MenuListItem,
+  MenuList,
+  MenuTitle,
+  MenuSection,
+  MenuSubTitle,
+  InfoBox,
+  TitleItem,
+  AlcogolItem,
+  InfoItem,
+  PriceItem,
+  DetailsItem,
+  DetailsText,
+  DetailsTitle,
+  Details,
+  DivForName,
+};
