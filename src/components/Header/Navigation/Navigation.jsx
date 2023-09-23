@@ -44,10 +44,6 @@ export const Navigation = () => {
           </NavListItem>
 
           <NavListItem>
-            <NavListItemLink href="">Кава</NavListItemLink>
-          </NavListItem>
-
-          <NavListItem>
             <NavListItemLink href="">Алкогольні напої</NavListItemLink>
           </NavListItem>
 
@@ -58,12 +54,17 @@ export const Navigation = () => {
           <NavListItem>
             <NavListItemLink href="">Фреска, Фрапе, Шейки</NavListItemLink>
           </NavListItem>
-          <NavListItem>
-            <NavListItemLink href="">Чай</NavListItemLink>
-          </NavListItem>
 
           <NavListItem>
             <NavListItemLink href="">Лимонади та Холодний чай</NavListItemLink>
+          </NavListItem>
+
+          <NavListItem>
+            <NavListItemLink href="">Кава</NavListItemLink>
+          </NavListItem>
+
+          <NavListItem>
+            <NavListItemLink href="">Чай</NavListItemLink>
           </NavListItem>
         </NavList>
       </Nav>

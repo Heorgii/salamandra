@@ -11,7 +11,8 @@ const MenuSection = styled.section`
 `;
 
 const MenuTitle = styled.h2`
-  color: ${theme.colors.braun};
+  /* color: ${theme.colors.braun}; */
+ color: ${props => props.theme.orange};
   font-family: ${theme.fonts[2]};
   font-size: ${theme.fontSizes.large};
   font-style: normal;
