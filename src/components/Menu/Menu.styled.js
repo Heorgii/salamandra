@@ -1,11 +1,6 @@
 import styled from 'styled-components';
 import theme from 'components/baseStyles/Variables.styled';
 
-const MenuBox = styled.div`
-  padding-top: 200px;
-  /* overflow-x: hidden; */
-`;
-
 const MenuSection = styled.section`
   display: flex;
   flex-direction: column;
@@ -22,8 +17,15 @@ const MenuTitle = styled.h2`
   font-style: normal;
   font-weight: 700;
   line-height: 29.26px;
-  text-transform: capitalize;
+  text-transform: uppercase;
   margin: 25px 0;
+`;
+const MenuSubTitle = styled(MenuTitle)`
+  text-transform: lowercase;
+  text-align: center;
+  &:first-letter {
+    text-transform: capitalize;
+  }
 `;
 
 const MenuList = styled.ul`
@@ -35,11 +37,11 @@ const MenuList = styled.ul`
   justify-items: center;
 
   @media screen and (min-width: ${theme.breakpoints.tablet}) {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 
   @media screen and (min-width: ${theme.breakpoints.desktop}) {
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 `;
 
@@ -49,8 +51,8 @@ const MenuListItem = styled.li`
   justify-content: start;
   align-items: start;
   list-style: none;
+  width: 230px;
   border-radius: 20px;
-  width: 180px;
   /* height: 450px; */
   background: ${theme.colors.white};
   -webkit-box-shadow: 3px 2px 4px 0px rgba(0, 0, 0, 0.5);
@@ -60,14 +62,19 @@ const MenuListItem = styled.li`
 `;
 
 const Img = styled.img`
+  width: 230px;
+  height: 230px;
   border-radius: 20px;
-  width: 180px;
-  height: 200px;
 `;
 
 const InfoBox = styled.div`
   width: 100%;
   padding: 5px;
+`;
+
+const DivForName = styled.div`
+  width: 100%;
+  height: 60px;
 `;
 
 const TitleItem = styled.h4`
@@ -85,7 +92,12 @@ const AlcogolItem = styled.h5`
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+  padding-left: 20px;
   color: ${theme.colors.black};
+  &:nth-of-type(1) {
+    margin-top: 5px;
+  }
+
 `;
 
 const InfoItem = styled.div`
@@ -108,7 +120,7 @@ const DetailsItem = styled.div`
 const DetailsText = styled.p`
   color: ${theme.colors.gray};
   font-family: ${theme.fonts[1]};
-  font-size: ${theme.fontSizes.extraSmall};
+  font-size: ${theme.fontSizes.small};
   font-style: normal;
   font-weight: 400;
   text-align: right;
@@ -117,9 +129,9 @@ const DetailsText = styled.p`
 const DetailsTitle = styled.p`
   color: ${theme.colors.black};
   font-family: ${theme.fonts[1]};
-  font-size: ${theme.fontSizes.small};
+  font-size: ${theme.fontSizes.medium};
   font-style: normal;
-  font-weight: 400;
+  font-weight: 700;
   line-height: normal;
   text-transform: capitalize;
 `;
@@ -138,7 +150,7 @@ export {
   MenuList,
   MenuTitle,
   MenuSection,
-  MenuBox,
+  MenuSubTitle,
   InfoBox,
   TitleItem,
   AlcogolItem,
@@ -148,4 +160,5 @@ export {
   DetailsText,
   DetailsTitle,
   Details,
+  DivForName,
 };

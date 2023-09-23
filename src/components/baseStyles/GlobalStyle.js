@@ -1,6 +1,6 @@
-import 'modern-normalize';
-import { createGlobalStyle } from 'styled-components';
-import theme from './Variables.styled';
+import "modern-normalize";
+import { createGlobalStyle } from "styled-components";
+import theme from "./Variables.styled";
 
 export const GlobalStyle = createGlobalStyle`
 body {
@@ -24,6 +24,12 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
  //-----reset-----
