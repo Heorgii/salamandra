@@ -13,6 +13,7 @@ const theme = {
     black: '#000000',
     gray: '#707070',
     braun: '#9A4E00',
+    orange: '#9A4E00',
     opacity: 'rgba(113, 113, 113, 0.3)',
   },
   fonts: [

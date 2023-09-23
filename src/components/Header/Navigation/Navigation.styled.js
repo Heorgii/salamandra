@@ -22,7 +22,8 @@ export const Nav = styled.nav`
   top: ${({ isFixed }) => (isFixed ? '0' : 'auto')};
   left: 0;
   background-color: ${({ isFixed }) => (isFixed ? '#ffffff' : 'transparent')};
-  box-shadow: ${({ isFixed }) => (isFixed ? '0px 2px 5px rgba(0, 0, 0, 0.1)' : 'none')};
+  box-shadow: ${({ isFixed }) =>
+    isFixed ? '0px 2px 5px rgba(0, 0, 0, 0.1)' : 'none'};
   z-index: ${({ isFixed }) => (isFixed ? '1000' : 'auto')};
   transition: top 0.3s ease;
 
@@ -57,11 +58,12 @@ export const NavListItem = styled.li`
   justify-content: center;
   align-items: center;
   border-radius: 9px;
-  background: ${theme.colors.yellow};
+  border: 2px solid ${theme.colors.yellow};
   padding: 6px 13px;
 
   &:hover {
     transform: scale(1.1);
+    background: ${theme.colors.yellow};
   }
 
   &:not(:last-child) {
@@ -74,10 +76,15 @@ export const NavListItem = styled.li`
 `;
 
 export const NavListItemLink = styled.a`
-  color: ${theme.colors.white};
+  color: ${props => props.theme.orange};
+
   font-family: ${theme.fonts[1]};
   font-size: ${theme.fontSizes.large};
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  
+  &:hover {
+    color: ${theme.colors.white};
+  }
 `;

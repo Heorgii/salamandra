@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import theme from "components/baseStyles/Variables.styled";
+import styled from 'styled-components';
+import theme from 'components/baseStyles/Variables.styled';
 
 const MenuSection = styled.section`
   display: flex;
@@ -52,6 +52,7 @@ const MenuListItem = styled.li`
   align-items: start;
   list-style: none;
   width: 230px;
+  border-radius: 20px;
   /* height: 450px; */
   background: ${theme.colors.white};
   -webkit-box-shadow: 3px 2px 4px 0px rgba(0, 0, 0, 0.5);
@@ -63,6 +64,7 @@ const MenuListItem = styled.li`
 const Img = styled.img`
   width: 230px;
   height: 230px;
+  border-radius: 20px;
 `;
 
 const InfoBox = styled.div`
@@ -95,6 +97,7 @@ const AlcogolItem = styled.h5`
   &:nth-of-type(1) {
     margin-top: 5px;
   }
+
 `;
 
 const InfoItem = styled.div`
