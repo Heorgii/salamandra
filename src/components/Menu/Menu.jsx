@@ -40,7 +40,7 @@ export const Menu = ({catalog, group, menu, isLoading, setIsLoading, error}) => 
                           {item.images !== 'none' && item.images && (
                             <Img
                               src={BASE_URL_IMG + item.images}
-                              alt={item.name}
+                              alt={item.name} loading="lazy"
                             />
                           )}
                           {/* {item.images === 'none' && (

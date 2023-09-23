@@ -37,7 +37,6 @@ export const Navigation = ({catalog, group, menu, isLoading, setIsLoading, error
   return (
     <NavBox id="nav">
       <SwitchTheme />
-
       <Nav onScroll={handleSliderScroll} isFixed={isFixed}>
         <NavList>
           {isLoading ? onLoading() : onLoaded()}
