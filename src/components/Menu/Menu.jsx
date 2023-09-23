@@ -88,9 +88,9 @@ export const Menu = () => {
                               alt={item.name}
                             />
                           )}
-                          {item.images === 'none' && (
+                          {/* {item.images === 'none' && (
                             <Img src={nophoto} alt={item.name} />
-                          )}
+                          )} */}
                           <InfoBox>
                             <TitleItem>{item.name}</TitleItem>
                             <DivForName>
