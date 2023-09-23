@@ -2,7 +2,7 @@ import theme from 'components/baseStyles/Variables.styled';
 import styled from 'styled-components';
 
 export const NavBox = styled.div`
-  margin-top: 230px;
+  margin-top: 200px;
   padding: 0 24px 0;
 
   @media screen and (min-width: ${theme.breakpoints.desktop}) {
@@ -39,10 +39,16 @@ export const Nav = styled.nav`
 
 export const NavList = styled.ul`
   display: flex;
-  padding-bottom: 20px;
-  padding-top: 10px;
+  gap: 10px;
+  padding: 8px;
+
+  @media screen and (min-width: ${theme.breakpoints.tablet}) {
+    padding-bottom: 20px;
+    padding-top: 10px;
+  }
 
   @media screen and (min-width: ${theme.breakpoints.desktop}) {
+    gap: 20px;
     padding-bottom: 15px;
     padding-top: 25px;
   }
@@ -66,10 +72,6 @@ export const NavListItem = styled.li`
     background: ${theme.colors.yellow};
   }
 
-  &:not(:last-child) {
-    margin-right: 20px;
-  }
-
   @media screen and (min-width: ${theme.breakpoints.desktop}) {
     padding: 6px 22px;
   }
@@ -79,11 +81,19 @@ export const NavListItemLink = styled.a`
   color: ${props => props.theme.orange};
 
   font-family: ${theme.fonts[1]};
-  font-size: ${theme.fontSizes.large};
+  font-size: ${theme.fontSizes.small};
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  
+
+  @media screen and (min-width: ${theme.breakpoints.tablet}) {
+    font-size: ${theme.fontSizes.medium};
+  }
+
+  @media screen and (min-width: ${theme.breakpoints.desktop}) {
+    font-size: ${theme.fontSizes.large};
+  }
+
   &:hover {
     color: ${theme.colors.white};
   }
