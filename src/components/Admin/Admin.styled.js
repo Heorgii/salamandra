@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { ReactComponent as Logout } from 'images/svg/logout.svg';
 import theme from 'components/baseStyles/Variables.styled';
 
-
 export const AdminContainer = styled.div`
   position: relative;
   padding: 20px;
@@ -12,7 +11,7 @@ export const AdminContainer = styled.div`
 export const Heading = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-bottom: 24px;
+  margin-bottom: 10px;
 `;
 
 export const Table = styled.table`

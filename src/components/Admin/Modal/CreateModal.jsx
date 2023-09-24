@@ -6,6 +6,7 @@ import { Formik } from 'formik';
 import { closeModalWindow } from 'hooks/modalWindow';
 import { cleanModal } from 'redux/modal/operation';
 import { modalComponent } from 'redux/modal/selectors';
+import { selectUser } from 'redux/auth/selectors';
 import { addReload } from 'redux/reload/slice';
 import { createServiceData } from 'services/APIservice';
 import { onFetchError } from 'helpers/Messages/NotifyMessages';
@@ -20,7 +21,9 @@ import {
   FormInput,
   FormInputFile,
   FormLabel,
+  FormLabelBox,
   FormList,
+  FormRatio,
   Modal,
   ModalForm,
 } from './Modal.styled';
@@ -30,9 +33,14 @@ export const CreateModal = () => {
   const [error, setError] = useState(null);
   const modal = useSelector(modalComponent);
   const dispatch = useDispatch();
+  const userName = useSelector(selectUser);
 
   async function createService(values) {
     const file = document.querySelector('#images')?.files[0];
+
+    console.log('file:', file);
+    console.log('values:', values);
+
     setIsLoading(true);
     try {
       const { code } = await createServiceData(`/admin/create`, values, file);
@@ -82,7 +90,9 @@ export const CreateModal = () => {
               alcohol: [],
               details: [],
               images: '',
-              //   size: '',
+              size: { value: '', mesure: '' },
+              active: 'false',
+              admin: userName,
             }}
             onSubmit={(values, { setSubmitting }) => {
               createService(values);
@@ -95,7 +105,7 @@ export const CreateModal = () => {
             {({
               handleChange,
               handleSubmit,
-              handleBlur,
+              setFieldValue,
               isSubmitting,
               values,
               errors,
@@ -190,6 +200,9 @@ export const CreateModal = () => {
                       name="alcohol"
                       placeholder="Position alcohol"
                       value={values.alcohol}
+                      onChange={e => {
+                        handleChange(e.target.value);
+                      }}
                     />
                   </FormField>
                   <FormField>
@@ -205,6 +218,11 @@ export const CreateModal = () => {
                       name="details"
                       placeholder="Position details"
                       value={values.details}
+                      // onChange={e => handleChange(e.target.value).split(',')}
+                      // onChange={e => {
+                      //   const array = e.target.value.split(',');
+                      //   setFieldValue('details', array);
+                      // }}
                     />
                   </FormField>
                   <FormField>
@@ -238,6 +256,70 @@ export const CreateModal = () => {
                     />
                   </FormField>
                   <FormField>
+                    <FormLabelBox>
+                      <span>Size</span>
+                      {errors.size && touched.size ? (
+                        <Error>{errors.size}</Error>
+                      ) : null}
+
+                      <div>
+                        <label htmlFor="size_value">
+                          <FormInput
+                            style={{ width: '70px' }}
+                            type="number"
+                            id="size_value"
+                            name="size.value"
+                            placeholder="value"
+                            value={values.size.value}
+                          />
+                        </label>
+                        <label htmlFor="size_measure">
+                          <FormInput
+                            style={{ width: '70px' }}
+                            type="text"
+                            id="size_measure"
+                            name="size.mesure"
+                            placeholder="measure"
+                            value={values.size.mesure}
+                          />
+                        </label>
+                      </div>
+                    </FormLabelBox>
+                  </FormField>
+                  <FormField>
+                    <FormLabelBox>
+                      <span>Active</span>
+                      {errors.active && touched.active ? (
+                        <Error>{errors.active}</Error>
+                      ) : null}
+                    </FormLabelBox>
+                    <FormRatio>
+                      <label
+                        style={{ marginRight: '5px' }}
+                        htmlFor="active_true"
+                      >
+                        <FormInput
+                          type="radio"
+                          id="active_true"
+                          name="active"
+                          value="true"
+                          checked={values.active === 'true'}
+                        />
+                        <span>true</span>
+                      </label>
+                      <label htmlFor="active_false">
+                        <FormInput
+                          type="radio"
+                          id="active_false"
+                          name="active"
+                          value="false"
+                          checked={values.active === 'false'}
+                        />
+                        <span>false</span>
+                      </label>
+                    </FormRatio>
+                  </FormField>
+                  <FormField>
                     <FormLabel htmlFor="images">
                       <span>Image</span>
                       {errors.images && touched.images ? (
@@ -258,6 +340,7 @@ export const CreateModal = () => {
                         onChange={e => {
                           handleChange(e);
                           setImage(e);
+                          setFieldValue('images', e.target.files[0]);
                         }}
                       />
                     ) : (
@@ -269,25 +352,11 @@ export const CreateModal = () => {
                         onChange={e => {
                           handleChange(e);
                           setImage(e);
+                          setFieldValue('images', e.target.files[0]);
                         }}
                       />
                     )}
                   </FormField>
-                  {/* <FormField>
-                    <FormLabel htmlFor="size">
-                      <span>Size</span>
-                      {errors.size && touched.size ? (
-                        <Error>{errors.size}</Error>
-                      ) : null}
-                    </FormLabel>
-                    <FormInput
-                      type="text"
-                      id="size"
-                      name="size"
-                      placeholder="Position size"
-                      value={values.size}
-                    />
-                  </FormField> */}
                 </FormList>
 
                 <DoneBtn

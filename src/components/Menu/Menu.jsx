@@ -21,8 +21,16 @@ import {
 import { onLoaded, onLoading } from 'helpers/Loader/Loader';
 import { Container } from 'components/baseStyles/CommonStyle.styled';
 
-export const Menu = ({catalog, group, menu, isLoading, setIsLoading, error}) => {
+export const Menu = ({
+  catalog,
+  group,
+  menu,
+  isLoading,
+  setIsLoading,
+  error,
+}) => {
   const { BASE_URL_IMG } = window.global;
+
   return (
     <Container>
       <MenuSection>
@@ -35,12 +43,14 @@ export const Menu = ({catalog, group, menu, isLoading, setIsLoading, error}) => 
                 <MenuList>
                   {menu.map(
                     item =>
-                    (item.category === cat && item?.active) && (
+                      item.category === cat &&
+                      item?.active && (
                         <MenuListItem key={uuidv4()}>
                           {item.images !== 'none' && item.images && (
                             <Img
                               src={BASE_URL_IMG + item.images}
-                              alt={item.name} loading="lazy"
+                              alt={item.name}
+                              loading="lazy"
                             />
                           )}
                           {/* {item.images === 'none' && (

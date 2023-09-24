@@ -10,9 +10,17 @@ import {
   NavListItemLink,
 } from './Navigation.styled';
 
-export const Navigation = ({catalog, group, menu, isLoading, setIsLoading, error}) => {
+export const Navigation = ({
+  catalog,
+  group,
+  menu,
+  isLoading,
+  setIsLoading,
+  error,
+}) => {
   const [, setScrollX] = useState(0); //scrollX
   const [isFixed, setIsFixed] = useState(false);
+
   const handleSliderScroll = e => {
     const container = e.target;
     const scrollLeft = container.scrollLeft;

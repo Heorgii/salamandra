@@ -85,6 +85,34 @@ export const FormLabel = styled.label`
   letter-spacing: 0.04em;
 `;
 
+export const FormLabelBox = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+
+  width: 100%;
+
+  font-family: ${theme.fonts[2]};
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.33;
+  letter-spacing: 0.04em;
+`;
+
+export const FormRatio = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+
+  font-family: ${theme.fonts[2]};
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.33;
+  letter-spacing: 0.04em;
+`;
+
 export const FormInput = styled(Field)`
   padding: 5px;
   box-sizing: border-box;
@@ -116,8 +144,8 @@ export const FormInput = styled(Field)`
     display: none;
   }
 
-  *:disabled {
-    background-color: ${theme.colors.black};
+  &:disabled {
+    background-color: ${theme.colors.opacity};
     color: ${theme.colors.gray};
   }
 `;
