@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 
 // const { BASE_URL } = window.global;
 // const BASE_URL = "https://";
-const BASE_URL = 'http://localhost:3030/api';
+// const BASE_URL = 'http://localhost:3030/api';
+const BASE_URL = 'https://salamandrabackend.studentvlad5.repl.co/api';
 
 async function fetchData(pathParams) {
   const axiosInstance = axios.create({

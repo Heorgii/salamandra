@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import {
   Img,
@@ -18,55 +18,18 @@ import {
   DetailsTitle,
   Details,
 } from './Menu.styled';
-import { fetchData } from 'services/APIservice';
-import { onFetchError } from 'helpers/Messages/NotifyMessages';
 import { onLoaded, onLoading } from 'helpers/Loader/Loader';
-// import nophoto from '../../images/other/no_photo.jpg';
 import { Container } from 'components/baseStyles/CommonStyle.styled';
 
-export const Menu = () => {
-  const [catalog, setCatalog] = useState([]);
-  const [group, setGroup] = useState([]);
-  const [menu, setMenu] = useState([]);
-  const [error, setError] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
+export const Menu = ({
+  catalog,
+  group,
+  menu,
+  isLoading,
+  setIsLoading,
+  error,
+}) => {
   const { BASE_URL_IMG } = window.global;
-
-  useEffect(() => {
-    (async function getData() {
-      setIsLoading(true);
-      try {
-        const { data } = await fetchData(`/menu`);
-        if (!data) {
-          return onFetchError('Whoops, something went wrong');
-        }
-        setMenu(data);
-        const listOfGroup = data.map(item => item.product);
-        let uniqueGroup = [...new Set(listOfGroup)];
-        setGroup(uniqueGroup);
-        let uniqueCategory = {};
-        for (const key of uniqueGroup) {
-          uniqueCategory[key] = [];
-          data.forEach(item => {
-            if (item.product === key) {
-              uniqueCategory[key].push(item.category);
-            }
-          });
-        }
-        for (const key in uniqueCategory) {
-          uniqueCategory[`${key}`] = [...new Set(uniqueCategory[`${key}`])];
-        }
-        setCatalog(uniqueCategory);
-      } catch (error) {
-        setError(error);
-      } finally {
-        setIsLoading(false);
-      }
-    })();
-  }, []);
-
-  // console.log('catalog', catalog);
-  // console.log('group', group);
 
   return (
     <Container>
@@ -87,6 +50,7 @@ export const Menu = () => {
                             <Img
                               src={BASE_URL_IMG + item.images}
                               alt={item.name}
+                              loading="lazy"
                             />
                           )}
                           {/* {item.images === 'none' && (

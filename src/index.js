@@ -8,10 +8,16 @@ import { App } from 'components/App';
 import { GlobalStyle } from 'components/baseStyles/GlobalStyle';
 import { ThemeStatus } from 'components/ThemeStatus/ThemeProvider';
 
+// window.global = {
+//   BASE_URL: 'http://localhost:3030/api',
+//   BASE_URL_IMG: 'http://localhost:3030/uploads/',
+// };
 window.global = {
-  BASE_URL: 'http://localhost:3030/api',
-  BASE_URL_IMG: 'http://localhost:3030/uploads/',
+  BASE_URL: 'https://salamandrabackend.studentvlad5.repl.co/api',
+  BASE_URL_IMG: 'https://salamandrabackend.studentvlad5.repl.co/uploads/',
 };
+
+
 // window.global = {
 //   BASE_URL: 'https://',
 //   BASE_URL_IMG: 'https://',
