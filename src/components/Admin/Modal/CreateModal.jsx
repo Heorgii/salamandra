@@ -37,6 +37,10 @@ export const CreateModal = () => {
 
   async function createService(values) {
     const file = document.querySelector('#images')?.files[0];
+
+    console.log('file:', file);
+    console.log('values:', values);
+
     setIsLoading(true);
     try {
       const { code } = await createServiceData(`/admin/create`, values, file);

@@ -61,10 +61,12 @@ export const EditModal = () => {
   }, [itemForFetch, modal.id]);
 
   async function editPosition(values) {
-    console.log('values:', values);
     // const file = values.images?.files[0];
     const file = document.querySelector('#images')?.files[0];
+
     console.log('file:', file);
+    console.log('values:', values);
+
     setIsLoading(true);
     try {
       const { code } = await updateServiceData(
@@ -375,7 +377,7 @@ export const EditModal = () => {
                         accept=".jpg,.jpeg,.webp,.png,.gif"
                         onChange={e => {
                           handleChange(e);
-                          // setFieldValue('images', dataUpdate.images);
+                          setFieldValue('images', dataUpdate.images);
                           setImage(e);
                         }}
                       />
@@ -387,7 +389,7 @@ export const EditModal = () => {
                         accept=".jpg,.jpeg,.webp,.png,.gif"
                         onChange={e => {
                           handleChange(e);
-                          // setFieldValue('images', e.target.files[0]);
+                          setFieldValue('images', e.target.files[0]);
                           setImage(e);
                         }}
                       />
