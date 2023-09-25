@@ -23,7 +23,9 @@ const MenuTitle = styled.h2`
   margin: 25px 0;
 `;
 
-const MenuSubTitle = styled(SubtitleText)``;
+const MenuSubTitle = styled(SubtitleText)`
+  margin-top: 25px;
+`;
 
 const MenuList = styled.ul`
   display: grid;
