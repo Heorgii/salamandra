@@ -2,7 +2,6 @@ import axios from 'axios';
 import PropTypes from 'prop-types';
 
 // const { BASE_URL } = window.global;
-// const BASE_URL = "https://";
 // const BASE_URL = 'http://localhost:3030/api';
 const BASE_URL = 'https://salamandrabackend.studentvlad5.repl.co/api';
 
@@ -20,15 +19,12 @@ async function fetchData(pathParams) {
   return await axiosInstance.get();
 }
 
-async function updateUserData(pathParams, body, file) {
+async function updateUserData(pathParams, body) {
   const formData = new FormData();
-  file && formData.set('avatar', file);
   formData.append('email', body.email);
-  formData.append('birthday', body.birthday);
-  formData.append('location', body.location);
   formData.append('phone', body.phone);
+  formData.append('userName', body.name);
   formData.append('role', body.role);
-  formData.append('userName', body.userName);
 
   return await axios.patch(`${BASE_URL}${pathParams}`, formData, {
     headers: {
@@ -40,15 +36,12 @@ async function updateUserData(pathParams, body, file) {
   });
 }
 
-async function createUserData(pathParams, body, file) {
+async function createUserData(pathParams, body) {
   const formData = new FormData();
-  file && formData.set('avatar', file);
-  formData.append('userName', body.userName);
+  formData.append('userName', body.name);
   formData.append('email', body.email);
   formData.append('password', body.password);
   formData.append('phone', body.phone);
-  formData.append('birthday', body.birthday);
-  formData.append('location', body.location);
   formData.append('role', body.role);
 
   return await axios.post(`${BASE_URL}${pathParams}`, formData, {
@@ -96,11 +89,12 @@ async function updateServiceData(pathParams, body, file) {
   formData.append('latin_name', body.latin_name);
   formData.append('price', body.price);
   formData.append('currency', body.currency);
-  formData.append('alcohol', body.alcohol.split(','));
-  formData.append('details', body.details.split(','));
-  file && formData.set('images', file);
+  formData.append('alcohol', body.alcohol);
+  formData.append('details', body.details);
+  // file && formData.set('images', file);
   formData.append('images', body.images);
-  formData.append('size', body.size);
+  formData.append('size.value', body.size.value);
+  formData.append('size.mesure', body.size.mesure);
   formData.append('active', body.active);
   formData.append('admin', body.admin);
 
@@ -123,11 +117,12 @@ async function createServiceData(pathParams, body, file) {
   formData.append('latin_name', body.latin_name);
   formData.append('price', body.price);
   formData.append('currency', body.currency);
-  formData.append('alcohol', body.alcohol.split(','));
-  formData.append('details', body.details.split(','));
+  formData.append('alcohol', body.alcohol);
+  formData.append('details', body.details);
   file && formData.set('images', file);
-  formData.append('images', body.images);
-  formData.append('size', body.size);
+  // formData.append('images', body.images);
+  formData.append('size.value', body.size.value);
+  formData.append('size.mesure', body.size.mesure);
   formData.append('active', body.active);
   formData.append('admin', body.admin);
 

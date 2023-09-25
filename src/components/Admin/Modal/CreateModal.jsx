@@ -85,7 +85,7 @@ export const CreateModal = () => {
               category: '',
               name: '',
               price: '',
-              currency: '',
+              currency: '₴',
               latin_name: '',
               alcohol: [],
               details: [],
@@ -200,9 +200,9 @@ export const CreateModal = () => {
                       name="alcohol"
                       placeholder="Position alcohol"
                       value={values.alcohol}
-                      onChange={e => {
-                        handleChange(e.target.value);
-                      }}
+                      // onChange={e => {
+                      //   handleChange(e.target.value);
+                      // }}
                     />
                   </FormField>
                   <FormField>
