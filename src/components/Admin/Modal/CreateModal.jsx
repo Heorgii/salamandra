@@ -85,7 +85,7 @@ export const CreateModal = () => {
               category: '',
               name: '',
               price: '',
-              currency: '',
+              currency: '₴',
               latin_name: '',
               alcohol: [],
               details: [],

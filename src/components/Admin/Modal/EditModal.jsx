@@ -115,7 +115,7 @@ export const EditModal = () => {
               category: dataUpdate?.category ? dataUpdate.category : '',
               name: dataUpdate?.name ? dataUpdate.name : '',
               price: dataUpdate?.price ? dataUpdate.price : '',
-              currency: dataUpdate?.currency ? dataUpdate.currency : '',
+              currency: dataUpdate?.currency ? dataUpdate.currency : '₴',
               latin_name: dataUpdate?.latin_name ? dataUpdate.latin_name : '',
               alcohol: dataUpdate?.alcohol ? dataUpdate.alcohol : [],
               details: dataUpdate?.details ? dataUpdate.details : [],
@@ -123,7 +123,7 @@ export const EditModal = () => {
               size: dataUpdate?.size
                 ? dataUpdate.size
                 : { value: '', mesure: '' },
-              active: dataUpdate?.active ? dataUpdate.active : '',
+              active: dataUpdate?.active ? dataUpdate.active : 'false',
               admin: userName,
             }}
             onSubmit={(values, { setSubmitting }) => {
@@ -332,11 +332,8 @@ export const EditModal = () => {
                           type="radio"
                           id="active_true"
                           name="active"
-                          value={values.active}
-                          onChange={e => {
-                            handleChange(e);
-                            setFieldValue(e.target.name, e.target.value);
-                          }}
+                          value="true"
+                          checked={values.active === true}
                         />
                         <span>true</span>
                       </label>
@@ -345,11 +342,8 @@ export const EditModal = () => {
                           type="radio"
                           id="active_false"
                           name="active"
-                          value={values.active}
-                          onChange={e => {
-                            handleChange(e);
-                            setFieldValue(e.target.name, e.target.value);
-                          }}
+                          value="false"
+                          checked={values.active === false}
                         />
                         <span>false</span>
                       </label>
@@ -362,7 +356,7 @@ export const EditModal = () => {
                         <Error>{errors.images}</Error>
                       ) : null}
                     </FormLabel>
-                    {dataUpdate.images ? (
+                    {dataUpdate.images && dataUpdate.images !== 'none' ? (
                       <FormInputFile
                         style={{
                           backgroundImage: `url(${
