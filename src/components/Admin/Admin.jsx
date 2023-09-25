@@ -751,7 +751,11 @@ export const Admin = () => {
                         <TableData>{position.alcohol}</TableData>
                         <TableData>{position.details}</TableData>
                         <TableData>{position.latin_name}</TableData>
-                        <TableData>{position.images ? 'yes' : 'no'}</TableData>
+                        <TableData>
+                          {position.images && position.images !== 'none'
+                            ? 'yes'
+                            : 'no'}
+                        </TableData>
                         <TableData>{position.size.value}</TableData>
                         <TableData>{position.size.mesure}</TableData>
                         <TableData>{position.active.toString()}</TableData>
