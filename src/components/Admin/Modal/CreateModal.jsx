@@ -12,6 +12,7 @@ import { createServiceData } from 'services/APIservice';
 import { onFetchError } from 'helpers/Messages/NotifyMessages';
 import { onLoaded, onLoading } from 'helpers/Loader/Loader';
 import { setImage } from 'utils/setimage';
+import schemas from 'utils/schemas';
 import {
   Backdrop,
   CloseBtn,
@@ -19,6 +20,7 @@ import {
   Error,
   FormField,
   FormInput,
+  FormInputBox,
   FormInputFile,
   FormLabel,
   FormLabelBox,
@@ -38,8 +40,8 @@ export const CreateModal = () => {
   async function createService(values) {
     const file = document.querySelector('#images')?.files[0];
 
-    console.log('file:', file);
-    console.log('values:', values);
+    // console.log('file:', file);
+    // console.log('values:', values);
 
     setIsLoading(true);
     try {
@@ -101,6 +103,7 @@ export const CreateModal = () => {
               closeDataModal();
             }}
             enableReinitialize={true}
+            validationSchema={schemas.schemasMenuPosition}
           >
             {({
               handleChange,
@@ -258,11 +261,14 @@ export const CreateModal = () => {
                   <FormField>
                     <FormLabelBox>
                       <span>Size</span>
-                      {errors.size && touched.size ? (
+                      {errors.size?.value &&
+                      touched.size?.value &&
+                      errors.size?.mesure &&
+                      touched.size?.mesure ? (
                         <Error>{errors.size}</Error>
                       ) : null}
 
-                      <div>
+                      <FormInputBox>
                         <label htmlFor="size_value">
                           <FormInput
                             style={{ width: '70px' }}
@@ -283,7 +289,7 @@ export const CreateModal = () => {
                             value={values.size.mesure}
                           />
                         </label>
-                      </div>
+                      </FormInputBox>
                     </FormLabelBox>
                   </FormField>
                   <FormField>

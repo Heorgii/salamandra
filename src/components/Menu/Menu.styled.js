@@ -74,13 +74,13 @@ const MenuListItem = styled.li`
 
 const Img = styled.img`
   width: 150px;
-  height: 150px;
+  height: 170px;
   min-width: 150px;
   border-radius: 20px;
 
   @media screen and (min-width: ${theme.breakpoints.tablet}) {
     width: 220px;
-    height: 230px;
+    height: 240px;
   }
 `;
 
