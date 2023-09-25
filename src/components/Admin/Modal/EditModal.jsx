@@ -32,6 +32,7 @@ export const EditModal = () => {
   const { BASE_URL_IMG } = window.global;
 
   const [dataUpdate, setDataUpdate] = useState([]);
+  const [img, setImg] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const modal = useSelector(modalComponent);
@@ -61,12 +62,7 @@ export const EditModal = () => {
   }, [itemForFetch, modal.id]);
 
   async function editPosition(values) {
-    // const file = values.images?.files[0];
-    const file = document.querySelector('#images')?.files[0];
-
-    console.log('file:', file);
-    console.log('values:', values);
-
+    const file = img;
     setIsLoading(true);
     try {
       const { code } = await updateServiceData(
@@ -362,7 +358,10 @@ export const EditModal = () => {
                           backgroundImage: `url(${
                             BASE_URL_IMG + dataUpdate.images
                           })`,
-                          backgroundSize: '20px ,20px',
+                          // backgroundSize: '20px ,20px',
+                          backgroundPosition: "center",
+                          backgroundRepeat: "no-repeat",
+                          backgroundSize: "cover"
                         }}
                         type="file"
                         id="images"
@@ -384,6 +383,7 @@ export const EditModal = () => {
                         onChange={e => {
                           handleChange(e);
                           setFieldValue('images', e.target.files[0]);
+                          setImg(e.target.files[0])
                           setImage(e);
                         }}
                       />
@@ -400,7 +400,6 @@ export const EditModal = () => {
                       type="text"
                       id="admin"
                       name="admin"
-                      defaultValue={userName}
                       disabled
                     />
                   </FormField>
