@@ -200,9 +200,9 @@ export const CreateModal = () => {
                       name="alcohol"
                       placeholder="Position alcohol"
                       value={values.alcohol}
-                      onChange={e => {
-                        handleChange(e.target.value);
-                      }}
+                      // onChange={e => {
+                      //   handleChange(e.target.value);
+                      // }}
                     />
                   </FormField>
                   <FormField>

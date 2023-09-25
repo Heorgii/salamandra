@@ -391,7 +391,7 @@ export const EditModal = () => {
                   </FormField>
                   <FormField>
                     <FormLabel htmlFor="admin">
-                      <span>Create/edit from</span>
+                      <span>Created/edited by</span>
                       {errors.admin && touched.admin ? (
                         <Error>{errors.admin}</Error>
                       ) : null}
