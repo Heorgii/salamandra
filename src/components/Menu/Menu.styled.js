@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import theme from 'components/baseStyles/Variables.styled';
+import { SubtitleText } from 'components/baseStyles/CommonStyle.styled';
 
 const MenuSection = styled.section`
   display: flex;
@@ -22,13 +23,7 @@ const MenuTitle = styled.h2`
   margin: 25px 0;
 `;
 
-const MenuSubTitle = styled(MenuTitle)`
-  text-transform: lowercase;
-  text-align: start;
-  &:first-letter {
-    text-transform: capitalize;
-  }
-`;
+const MenuSubTitle = styled(SubtitleText)``;
 
 const MenuList = styled.ul`
   display: grid;
