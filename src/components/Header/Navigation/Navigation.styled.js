@@ -14,6 +14,7 @@ export const Nav = styled.nav`
   width: 100%;
   overflow-x: scroll;
   white-space: nowrap;
+  cursor: pointer;
 
   width: 100%;
   overflow-x: scroll;
@@ -28,7 +29,7 @@ export const Nav = styled.nav`
   transition: top 0.3s ease;
 
   &::-webkit-scrollbar {
-    height: 2px;
+    height: 3px;
   }
 
   &::-webkit-scrollbar-thumb {

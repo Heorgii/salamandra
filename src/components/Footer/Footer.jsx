@@ -5,7 +5,7 @@ export const FooterComp = () => {
   return (
     <Footer>
       <BrandMaze
-        href="https://brand-maze.vercel.app/"
+        href="https://brand-maze.com/"
         target="_blank"
         rel="noopener noreferrer"
       >
