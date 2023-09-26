@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { MdClose, MdDone } from 'react-icons/md';
-import { Formik } from 'formik';
+import { FieldArray, Formik } from 'formik';
 import { closeModalWindow } from 'hooks/modalWindow';
 import { cleanModal } from 'redux/modal/operation';
 import { modalComponent } from 'redux/modal/selectors';
@@ -12,18 +12,24 @@ import { createServiceData } from 'services/APIservice';
 import { onFetchError } from 'helpers/Messages/NotifyMessages';
 import { onLoaded, onLoading } from 'helpers/Loader/Loader';
 import { setImage } from 'utils/setimage';
+import schemas from 'utils/schemas';
 import {
+  AddDetailsBtn,
   Backdrop,
   CloseBtn,
   DoneBtn,
   Error,
   FormField,
   FormInput,
+  FormInputArray,
+  FormInputBox,
+  FormInputBoxColumn,
   FormInputFile,
   FormLabel,
   FormLabelBox,
   FormList,
   FormRatio,
+  IncrementBtn,
   Modal,
   ModalForm,
 } from './Modal.styled';
@@ -96,9 +102,11 @@ export const CreateModal = () => {
               createService(values);
               dispatch(addReload(false));
               setSubmitting(false);
-              closeDataModal();
+              closeModalWindow();
+              dispatch(cleanModal());
             }}
             enableReinitialize={true}
+            validationSchema={schemas.schemasMenuPosition}
           >
             {({
               handleChange,
@@ -185,44 +193,84 @@ export const CreateModal = () => {
                       value={values.latin_name}
                     />
                   </FormField>
-                  <FormField>
-                    <FormLabel htmlFor="alcohol">
-                      <span>Alcohol</span>
-                      {errors.alcohol && touched.alcohol ? (
-                        <Error>{errors.alcohol}</Error>
-                      ) : null}
-                    </FormLabel>
-                    <FormInput
-                      type="text"
-                      id="alcohol"
-                      name="alcohol"
-                      placeholder="Position alcohol"
-                      value={values.alcohol}
-                      // onChange={e => {
-                      //   handleChange(e.target.value);
-                      // }}
-                    />
-                  </FormField>
-                  <FormField>
-                    <FormLabel htmlFor="details">
-                      <span>Details</span>
-                      {errors.details && touched.details ? (
-                        <Error>{errors.details}</Error>
-                      ) : null}
-                    </FormLabel>
-                    <FormInput
-                      type="text"
-                      id="details"
-                      name="details"
-                      placeholder="Position details"
-                      value={values.details}
-                      // onChange={e => handleChange(e.target.value).split(',')}
-                      // onChange={e => {
-                      //   const array = e.target.value.split(',');
-                      //   setFieldValue('details', array);
-                      // }}
-                    />
-                  </FormField>
+                  <FieldArray
+                    name="alcohol"
+                    render={arrayHelpers => (
+                      <FormInputArray>
+                        <FormLabel>Alcohol</FormLabel>
+                        <FormInputBoxColumn>
+                          {values.alcohol && values.alcohol.length > 0 ? (
+                            values.alcohol.map((alc, index) => (
+                              <div key={index}>
+                                <FormInput
+                                  name={`alcohol.${index}`}
+                                  value={alc}
+                                />
+                                <IncrementBtn
+                                  type="button"
+                                  onClick={() => arrayHelpers.remove(index)} // remove a detail from the list
+                                >
+                                  -
+                                </IncrementBtn>
+                                <IncrementBtn
+                                  type="button"
+                                  onClick={() => arrayHelpers.insert(index, '')} // insert an empty string at a position
+                                >
+                                  +
+                                </IncrementBtn>
+                              </div>
+                            ))
+                          ) : (
+                            <AddDetailsBtn
+                              type="button"
+                              onClick={() => arrayHelpers.push('')}
+                            >
+                              Add an alcohol
+                            </AddDetailsBtn>
+                          )}
+                        </FormInputBoxColumn>
+                      </FormInputArray>
+                    )}
+                  />
+                  <FieldArray
+                    name="details"
+                    render={arrayHelpers => (
+                      <FormInputArray>
+                        <FormLabel>Details</FormLabel>
+                        <FormInputBoxColumn>
+                          {values.details && values.details.length > 0 ? (
+                            values.details.map((detail, index) => (
+                              <div key={index}>
+                                <FormInput
+                                  name={`details.${index}`}
+                                  value={detail}
+                                />
+                                <IncrementBtn
+                                  type="button"
+                                  onClick={() => arrayHelpers.remove(index)}
+                                >
+                                  -
+                                </IncrementBtn>
+                                <IncrementBtn
+                                  type="button"
+                                  onClick={() => arrayHelpers.insert(index, '')}
+                                >
+                                  +
+                                </IncrementBtn>
+                              </div>
+                            ))
+                          ) : (
+                            <AddDetailsBtn
+                              type="button"
+                              onClick={() => arrayHelpers.push('')}
+                            >
+                              Add a detail
+                            </AddDetailsBtn>
+                          )}
+                        </FormInputBoxColumn>
+                      </FormInputArray>
+                    )}
+                  />
                   <FormField>
                     <FormLabel htmlFor="price">
                       <span>Price</span>
@@ -256,11 +304,14 @@ export const CreateModal = () => {
                   <FormField>
                     <FormLabelBox>
                       <span>Size</span>
-                      {errors.size && touched.size ? (
+                      {errors.size?.value &&
+                      touched.size?.value &&
+                      errors.size?.mesure &&
+                      touched.size?.mesure ? (
                         <Error>{errors.size}</Error>
                       ) : null}
 
-                      <div>
+                      <FormInputBox>
                         <label htmlFor="size_value">
                           <FormInput
                             style={{ width: '70px' }}
@@ -281,7 +332,7 @@ export const CreateModal = () => {
                             value={values.size.mesure}
                           />
                         </label>
-                      </div>
+                      </FormInputBox>
                     </FormLabelBox>
                   </FormField>
                   <FormField>

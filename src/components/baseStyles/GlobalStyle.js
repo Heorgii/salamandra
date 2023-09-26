@@ -3,6 +3,10 @@ import { createGlobalStyle } from 'styled-components';
 import theme from './Variables.styled';
 
 export const GlobalStyle = createGlobalStyle`
+html{
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Inria Sans', sans-serif;
   font-family: 'Kumar One', cursive;

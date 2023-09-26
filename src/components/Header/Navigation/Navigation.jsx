@@ -13,6 +13,7 @@ import {
 export const Navigation = ({ catalog, isLoading, error }) => {
   const [, setScrollX] = useState(0); //scrollX
   const [isFixed, setIsFixed] = useState(false);
+  const [activeItem, setActiveItem] = useState(null);
 
   const handleSliderScroll = e => {
     const container = e.target;
@@ -37,6 +38,9 @@ export const Navigation = ({ catalog, isLoading, error }) => {
     };
   }, []);
 
+  const handleItemClick = item => {
+    setActiveItem(item);
+  };
   return (
     <NavBox id="nav">
       <SwitchTheme />
@@ -45,8 +49,16 @@ export const Navigation = ({ catalog, isLoading, error }) => {
           {isLoading ? onLoading() : onLoaded()}
           {error && onFetchError('Whoops, something went wrong')}
           {catalog.map((item, i) => (
-            <NavListItem key={i}>
-              <NavListItemLink href={`${currentUrl}#${item}`} aria-label={item}>
+            <NavListItem
+              key={i}
+              className={activeItem === item ? 'active' : ''}
+              onClick={() => handleItemClick(item)}
+            >
+              <NavListItemLink
+                href={`${currentUrl}#${item}`}
+                aria-label={item}
+                className={activeItem === item ? 'active' : ''}
+              >
                 {item}
               </NavListItemLink>
             </NavListItem>
