@@ -31,16 +31,14 @@ import {
 export const CreateModal = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [img, setImg] = useState([]);
   const modal = useSelector(modalComponent);
   const dispatch = useDispatch();
   const userName = useSelector(selectUser);
 
   async function createService(values) {
-    const file = document.querySelector('#images')?.files[0];
-
-    console.log('file:', file);
-    console.log('values:', values);
-
+    // const file = document.querySelector('#images')?.files[0];
+    const file = img;
     setIsLoading(true);
     try {
       const { code } = await createServiceData(`/admin/create`, values, file);
@@ -339,6 +337,7 @@ export const CreateModal = () => {
                         accept=".jpg,.jpeg,.webp,.png,.gif"
                         onChange={e => {
                           handleChange(e);
+                          setImg(e.target.files[0]);
                           setImage(e);
                           setFieldValue('images', e.target.files[0]);
                         }}
@@ -351,6 +350,7 @@ export const CreateModal = () => {
                         accept=".jpg,.jpeg,.webp,.png,.gif"
                         onChange={e => {
                           handleChange(e);
+                          setImg(e.target.files[0]);
                           setImage(e);
                           setFieldValue('images', e.target.files[0]);
                         }}

@@ -165,13 +165,12 @@ export const Admin = () => {
     });
 
     setFilterPositions(peremOfFilter);
-    // console.log('peremOfFilter:', peremOfFilter);
   };
 
   const cleanFilterPositions = e => {
     e.preventDefault();
-    let filterG = '';
-    let filterSg = '';
+    let filterPr = '';
+    let filterCa = '';
     let filterN = '';
     let filterLn = '';
     let filterA = '';
@@ -183,50 +182,26 @@ export const Admin = () => {
     let filterI = '';
     let filterAct = '';
     let filterAd = '';
-    e.currentTarget.name === 'clearFilterProduct'
-      ? setFilterProduct(filterG)
-      : (filterG = filterProduct);
-    e.currentTarget.name === 'clearFilterCategory'
-      ? setFilterCategory(filterSg)
-      : (filterSg = filterCategory);
-    e.currentTarget.name === 'clearFilterName'
-      ? setFilterName(filterN)
-      : (filterN = filterName);
-    e.currentTarget.name === 'clearFilterLatinName'
-      ? setFilterLatinName(filterLn)
-      : (filterN = filterLatinName);
-    e.currentTarget.name === 'clearFilterAlcohol'
-      ? setFilterAlcohol(filterA)
-      : (filterA = filterAlcohol);
-    e.currentTarget.name === 'clearFilterDetails'
-      ? setFilterDetails(filterD)
-      : (filterD = filterDetails);
-    e.currentTarget.name === 'clearFilterSize'
-      ? setFilterSize(filterS)
-      : (filterS = filterSize);
-    e.currentTarget.name === 'clearFilterUnit'
-      ? setFilterUnit(filterU)
-      : (filterS = filterUnit);
-    e.currentTarget.name === 'clearFilterPrice'
-      ? setFilterPrice(filterP)
-      : (filterP = filterPrice);
-    e.currentTarget.name === 'clearFilterCurrency'
-      ? setFilterCurrency(filterC)
-      : (filterC = filterCurrency);
-    e.currentTarget.name === 'clearFilterImage'
-      ? setFilterCurrency(filterI)
-      : (filterI = filterImage);
-    e.currentTarget.name === 'clearFilterActive'
-      ? setFilterCurrency(filterAct)
-      : (filterAct = filterActive);
-    e.currentTarget.name === 'clearFilterAdmin'
-      ? setFilterCurrency(filterAd)
-      : (filterAd = filterAdmin);
+
+    e.currentTarget.name === 'clearFilterProduct' ? setFilterProduct(filterPr) : (filterPr = filterProduct);
+    e.currentTarget.name === 'clearFilterCategory' ? setFilterCategory(filterCa): (filterCa = filterCategory);
+    e.currentTarget.name === 'clearFilterName' ? setFilterName(filterN) :(filterN = filterName);
+    e.currentTarget.name === 'clearFilterLatinName' ? setFilterLatinName(filterLn) : (filterLn = filterLatinName);
+    e.currentTarget.name === 'clearFilterAlcohol' ? setFilterAlcohol(filterA) : (filterA = filterAlcohol);
+    e.currentTarget.name === 'clearFilterDetails' ? setFilterDetails(filterD) : (filterD = filterDetails);
+    e.currentTarget.name === 'clearFilterSize' ? setFilterSize(filterS) : (filterS = filterSize);
+    e.currentTarget.name === 'clearFilterUnit' ? setFilterUnit(filterU) : (filterS = filterUnit);
+    e.currentTarget.name === 'clearFilterPrice' ? setFilterPrice(filterP) : (filterP = filterPrice);
+    e.currentTarget.name === 'clearFilterCurrency' ? setFilterCurrency(filterC) : (filterC = filterCurrency);
+    e.currentTarget.name === 'clearFilterImage' ? setFilterCurrency(filterI) : (filterI = filterImage);
+    e.currentTarget.name === 'clearFilterActive' ? setFilterCurrency(filterAct): (filterAct = filterActive);
+    e.currentTarget.name === 'clearFilterAdmin' ? setFilterCurrency(filterAd) : (filterAd = filterAdmin);
+    
     const peremOfFilter = [];
     positions.map(item => {
       if (
-        item.product?.toString().toLowerCase().includes(filterG) &&
-        item.category?.toString().toLowerCase().includes(filterSg) &&
+        item.product?.toString().toLowerCase().includes(filterPr) &&
+        item.category?.toString().toLowerCase().includes(filterCa) &&
         item.name?.toString().toLowerCase().includes(filterN) &&
         item.latin_name?.toString().toLowerCase().includes(filterLn) &&
         item.alcohol?.toString().toLowerCase().includes(filterA) &&
