@@ -124,6 +124,7 @@ const InfoItem = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: start;
+  align-items: center;
 `;
 const PriceItem = styled.div`
   width: 50%;
@@ -131,10 +132,14 @@ const PriceItem = styled.div`
 
 const DetailsItem = styled.div`
   width: 50%;
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
   align-items: end;
+  color: ${theme.colors.gray};
+  font-family: ${theme.fonts[1]};
+  font-size: ${theme.fontSizes.extraSmall};
+  font-style: normal;
+  font-weight: 400;
+  text-align: right;
+  line-height: normal;
 `;
 
 const DetailsText = styled.li`
