@@ -12,6 +12,7 @@ import { fetchData, updateServiceData } from 'services/APIservice'; //fetchServi
 import { onFetchError } from 'helpers/Messages/NotifyMessages';
 import { onLoaded, onLoading } from 'helpers/Loader/Loader';
 import { setImage } from 'utils/setimage';
+import schemas from 'utils/schemas';
 import {
   Backdrop,
   CloseBtn,
@@ -19,6 +20,7 @@ import {
   Error,
   FormField,
   FormInput,
+  FormInputBox,
   FormInputFile,
   FormLabel,
   FormLabelBox,
@@ -63,6 +65,10 @@ export const EditModal = () => {
 
   async function editPosition(values) {
     const file = img;
+
+    // console.log('editPosition ~ file:', file);
+    // console.log('editPosition ~ values:', values);
+
     setIsLoading(true);
     try {
       const { code } = await updateServiceData(
@@ -129,6 +135,7 @@ export const EditModal = () => {
               setSubmitting(false);
             }}
             enableReinitialize={true}
+            validationSchema={schemas.schemasMenuPosition}
           >
             {({
               handleChange,
@@ -185,15 +192,13 @@ export const EditModal = () => {
                         <Error>{errors.category}</Error>
                       ) : null}
                     </FormLabel>
-                    <div style={{ position: 'relative' }}>
-                      <FormInput
-                        type="text"
-                        id="category"
-                        name="category"
-                        placeholder="Type category"
-                        value={values.category}
-                      />
-                    </div>
+                    <FormInput
+                      type="text"
+                      id="category"
+                      name="category"
+                      placeholder="Type category"
+                      value={values.category}
+                    />
                   </FormField>
                   <FormField>
                     <FormLabel htmlFor="name">
@@ -288,28 +293,35 @@ export const EditModal = () => {
                   <FormField>
                     <FormLabelBox>
                       <span>Size</span>
-                      {errors.size && touched.size ? (
+                      {errors.size?.value &&
+                      touched.size?.value &&
+                      errors.size?.mesure &&
+                      touched.size?.mesure ? (
                         <Error>{errors.size}</Error>
                       ) : null}
 
-                      <div>
-                        <FormInput
-                          style={{ width: '70px' }}
-                          type="number"
-                          id="size_value"
-                          name="size.value"
-                          placeholder="value"
-                          value={values.size.value}
-                        />
-                        <FormInput
-                          style={{ width: '70px' }}
-                          type="text"
-                          id="size_measure"
-                          name="size.mesure"
-                          placeholder="measure"
-                          value={values.size.mesure}
-                        />
-                      </div>
+                      <FormInputBox>
+                        <label htmlFor="size_value">
+                          <FormInput
+                            style={{ width: '70px' }}
+                            type="number"
+                            id="size_value"
+                            name="size.value"
+                            placeholder="value"
+                            value={values.size.value}
+                          />
+                        </label>
+                        <label htmlFor="size_measure">
+                          <FormInput
+                            style={{ width: '70px' }}
+                            type="text"
+                            id="size_measure"
+                            name="size.mesure"
+                            placeholder="measure"
+                            value={values.size.mesure}
+                          />
+                        </label>
+                      </FormInputBox>
                     </FormLabelBox>
                   </FormField>
                   <FormField>
@@ -359,9 +371,9 @@ export const EditModal = () => {
                             BASE_URL_IMG + dataUpdate.images
                           })`,
                           // backgroundSize: '20px ,20px',
-                          backgroundPosition: "center",
-                          backgroundRepeat: "no-repeat",
-                          backgroundSize: "cover"
+                          backgroundPosition: 'center',
+                          backgroundRepeat: 'no-repeat',
+                          backgroundSize: 'cover',
                         }}
                         type="file"
                         id="images"
@@ -383,7 +395,7 @@ export const EditModal = () => {
                         onChange={e => {
                           handleChange(e);
                           setFieldValue('images', e.target.files[0]);
-                          setImg(e.target.files[0])
+                          setImg(e.target.files[0]);
                           setImage(e);
                         }}
                       />
@@ -391,17 +403,12 @@ export const EditModal = () => {
                   </FormField>
                   <FormField>
                     <FormLabel htmlFor="admin">
-                      <span>Created/edited by</span>
+                      <span>Created / edited by</span>
                       {errors.admin && touched.admin ? (
                         <Error>{errors.admin}</Error>
                       ) : null}
                     </FormLabel>
-                    <FormInput
-                      type="text"
-                      id="admin"
-                      name="admin"
-                      disabled
-                    />
+                    <FormInput type="text" id="admin" name="admin" disabled />
                   </FormField>
                 </FormList>
 
