@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { MdClose, MdDone } from 'react-icons/md';
-import { Formik } from 'formik';
+import { FieldArray, Formik } from 'formik';
 import { closeModalWindow } from 'hooks/modalWindow';
 import { cleanModal } from 'redux/modal/operation';
 import { modalComponent } from 'redux/modal/selectors';
@@ -14,18 +14,22 @@ import { onLoaded, onLoading } from 'helpers/Loader/Loader';
 import { setImage } from 'utils/setimage';
 import schemas from 'utils/schemas';
 import {
+  AddDetailsBtn,
   Backdrop,
   CloseBtn,
   DoneBtn,
   Error,
   FormField,
   FormInput,
+  FormInputArray,
   FormInputBox,
+  FormInputBoxColumn,
   FormInputFile,
   FormLabel,
   FormLabelBox,
   FormList,
   FormRatio,
+  IncrementBtn,
   Modal,
   ModalForm,
 } from './Modal.styled';
@@ -131,8 +135,9 @@ export const EditModal = () => {
             onSubmit={(values, { setSubmitting }) => {
               editPosition(values);
               dispatch(addReload(false));
-              closeDataModal();
               setSubmitting(false);
+              dispatch(cleanModal());
+              closeModalWindow();
             }}
             enableReinitialize={true}
             validationSchema={schemas.schemasMenuPosition}
@@ -149,10 +154,7 @@ export const EditModal = () => {
               <ModalForm
                 autoComplete="off"
                 onSubmit={handleSubmit}
-                onChange={e => {
-                  handleChange(e);
-                  // values[e.target.name] = e.target.value;
-                }}
+                onChange={handleChange}
               >
                 <FormList>
                   <FormField>
@@ -260,36 +262,78 @@ export const EditModal = () => {
                       value={values.latin_name}
                     />
                   </FormField>
-                  <FormField>
-                    <FormLabel htmlFor="alcohol">
-                      <span>Alcohol</span>
-                      {errors.alcohol && touched.alcohol ? (
-                        <Error>{errors.alcohol}</Error>
-                      ) : null}
-                    </FormLabel>
-                    <FormInput
-                      type="text"
-                      id="alcohol"
-                      name="alcohol"
-                      placeholder="Type alcohol"
-                      value={values.alcohol}
-                    />
-                  </FormField>
-                  <FormField>
-                    <FormLabel htmlFor="details">
-                      <span>Details</span>
-                      {errors.details && touched.details ? (
-                        <Error>{errors.details}</Error>
-                      ) : null}
-                    </FormLabel>
-                    <FormInput
-                      type="text"
-                      id="details"
-                      name="details"
-                      placeholder="Type details"
-                      value={values.details}
-                    />
-                  </FormField>
+                  <FieldArray
+                    name="alcohol"
+                    render={arrayHelpers => (
+                      <FormInputArray>
+                        <FormLabel>Alcohol</FormLabel>
+                        <FormInputBoxColumn>
+                          {values.alcohol && values.alcohol.length > 0 ? (
+                            values.alcohol.map((alc, index) => (
+                              <div key={index}>
+                                <FormInput name={`alcohol.${index}`} />
+                                <IncrementBtn
+                                  type="button"
+                                  onClick={() => arrayHelpers.remove(index)} // remove a detail from the list
+                                >
+                                  -
+                                </IncrementBtn>
+                                <IncrementBtn
+                                  type="button"
+                                  onClick={() => arrayHelpers.insert(index, '')} // insert an empty string at a position
+                                >
+                                  +
+                                </IncrementBtn>
+                              </div>
+                            ))
+                          ) : (
+                            <AddDetailsBtn
+                              type="button"
+                              onClick={() => arrayHelpers.push('')}
+                            >
+                              Add an alcohol
+                            </AddDetailsBtn>
+                          )}
+                        </FormInputBoxColumn>
+                      </FormInputArray>
+                    )}
+                  />
+                  <FieldArray
+                    name="details"
+                    render={arrayHelpers => (
+                      <FormInputArray>
+                        <FormLabel>Details</FormLabel>
+                        <FormInputBoxColumn>
+                          {values.details && values.details.length > 0 ? (
+                            values.details.map((detail, index) => (
+                              <div key={index}>
+                                <FormInput name={`details.${index}`} />
+                                <IncrementBtn
+                                  type="button"
+                                  onClick={() => arrayHelpers.remove(index)}
+                                >
+                                  -
+                                </IncrementBtn>
+                                <IncrementBtn
+                                  type="button"
+                                  onClick={() => arrayHelpers.insert(index, '')}
+                                >
+                                  +
+                                </IncrementBtn>
+                              </div>
+                            ))
+                          ) : (
+                            <AddDetailsBtn
+                              type="button"
+                              onClick={() => arrayHelpers.push('')}
+                            >
+                              Add a detail
+                            </AddDetailsBtn>
+                          )}
+                        </FormInputBoxColumn>
+                      </FormInputArray>
+                    )}
+                  />
                   <FormField>
                     <FormLabelBox>
                       <span>Size</span>
@@ -404,9 +448,6 @@ export const EditModal = () => {
                   <FormField>
                     <FormLabel htmlFor="admin">
                       <span>Created / edited by</span>
-                      {errors.admin && touched.admin ? (
-                        <Error>{errors.admin}</Error>
-                      ) : null}
                     </FormLabel>
                     <FormInput type="text" id="admin" name="admin" disabled />
                   </FormField>

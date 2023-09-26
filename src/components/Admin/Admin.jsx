@@ -6,6 +6,7 @@ import { openModalWindow } from 'hooks/modalWindow';
 import { addModal } from 'redux/modal/operation';
 import { addReload } from 'redux/reload/slice';
 import { reloadValue } from 'redux/reload/selectors';
+import { logOut } from 'redux/auth/operations';
 import { fetchData, deleteData } from 'services/APIservice';
 import { PaginationBlock } from 'helpers/Pagination/Pagination';
 import { onLoading, onLoaded } from 'helpers/Loader/Loader';
@@ -27,8 +28,8 @@ import {
   TableFilter,
   TableHead,
   TableRow,
+  ClearFiltersBtn,
 } from './Admin.styled';
-import { logOut } from 'redux/auth/operations';
 
 export const Admin = () => {
   const [positions, setPositions] = useState([]);
@@ -55,22 +56,24 @@ export const Admin = () => {
   //   console.log('filterPrice:', filterPrice);
 
   useEffect(() => {
-    (async function getData() {
-      setIsLoading(true);
-      try {
-        const { data } = await fetchData('/admin');
-        setPositions(data);
-        setFilterPositions(data);
-        if (!data) {
-          return onFetchError('Whoops, something went wrong');
-        }
-      } catch (error) {
-        setError(error);
-      } finally {
-        setIsLoading(false);
-      }
-    })();
+    getData();
   }, [reload]);
+
+  async function getData() {
+    setIsLoading(true);
+    try {
+      const { data } = await fetchData('/admin');
+      setPositions(data);
+      setFilterPositions(data);
+      if (!data) {
+        return onFetchError('Whoops, something went wrong');
+      }
+    } catch (error) {
+      setError(error);
+    } finally {
+      setIsLoading(false);
+    }
+  }
 
   async function deletePosition(id) {
     setIsLoading(true);
@@ -247,6 +250,23 @@ export const Admin = () => {
     setFilterPositions(peremOfFilter);
   };
 
+  const clearAllFilters = e => {
+    getData();
+    setFilterProduct('');
+    setFilterCategory('');
+    setFilterName('');
+    setFilterLatinName('');
+    setFilterAlcohol('');
+    setFilterDetails('');
+    setFilterSize('');
+    setFilterUnit('');
+    setFilterPrice('');
+    setFilterCurrency('');
+    setFilterImage('');
+    setFilterActive('');
+    setFilterAdmin('');
+  };
+
   const handleSearchOnEnter = e => {
     // eslint-disable-next-line eqeqeq
     if (e.key == 'Enter') {
@@ -297,11 +317,23 @@ export const Admin = () => {
         </Heading>
         {isLoading ? onLoading() : onLoaded()}
         {error && onFetchError('Whoops, something went wrong')}
-        {!isLearnMore ? (
-          <LearnMoreBtn onClick={toggleLearnMore}>Less</LearnMoreBtn>
-        ) : (
-          <LearnMoreBtn onClick={toggleLearnMore}>More</LearnMoreBtn>
-        )}
+        <div style={{ display: 'flex' }}>
+          <ClearFiltersBtn
+            type="button"
+            id="filters"
+            name="clearFilters"
+            onClick={e => {
+              clearAllFilters(e);
+            }}
+          >
+            Clear all filters
+          </ClearFiltersBtn>
+          {!isLearnMore ? (
+            <LearnMoreBtn onClick={toggleLearnMore}>Less details</LearnMoreBtn>
+          ) : (
+            <LearnMoreBtn onClick={toggleLearnMore}>More details</LearnMoreBtn>
+          )}
+        </div>
         <Table>
           <TableFilter>
             <TableRow>
