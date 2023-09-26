@@ -14,6 +14,7 @@ export const Nav = styled.nav`
   width: 100%;
   overflow-x: scroll;
   white-space: nowrap;
+  cursor: pointer;
 
   width: 100%;
   overflow-x: scroll;
@@ -28,7 +29,7 @@ export const Nav = styled.nav`
   transition: top 0.3s ease;
 
   &::-webkit-scrollbar {
-    height: 2px;
+    height: 3px;
   }
 
   &::-webkit-scrollbar-thumb {
@@ -67,19 +68,30 @@ export const NavListItem = styled.li`
   border: 2px solid ${theme.colors.yellow};
   padding: 6px 13px;
 
-  &:hover {
+  /* transform: ${({ activeNavItem }) => (activeNavItem ? 'scale(1.1)' : '')};
+  background-color: ${({ activeNavItem }) =>
+    activeNavItem ? theme.colors.yellow : ''}; */
+  /* &:hover {
     transform: scale(1.1);
     background: ${theme.colors.yellow};
-  }
+  } */
 
   @media screen and (min-width: ${theme.breakpoints.desktop}) {
     padding: 6px 22px;
+  }
+
+  &.active {
+    transform: scale(1.1);
+    background: ${theme.colors.yellow};
   }
 `;
 
 export const NavListItemLink = styled.a`
   color: ${props => props.theme.orange};
 
+  &.active {
+    color: ${theme.colors.white};
+  }
   font-family: ${theme.fonts[1]};
   font-size: ${theme.fontSizes.small};
   font-style: normal;
@@ -94,7 +106,7 @@ export const NavListItemLink = styled.a`
     font-size: ${theme.fontSizes.large};
   }
 
-  &:hover {
+  /* &:hover {
     color: ${theme.colors.white};
-  }
+  } */
 `;

@@ -25,6 +25,7 @@ const MenuTitle = styled.h2`
 
 const MenuSubTitle = styled(SubtitleText)`
   margin-top: 25px;
+  text-transform: capitalize;
 `;
 
 const MenuList = styled.ul`
