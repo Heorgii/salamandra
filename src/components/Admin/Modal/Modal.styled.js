@@ -14,11 +14,12 @@ export const Backdrop = styled.div`
 
   width: 100%;
   height: 100%;
-  padding-top: 50px;
+  padding-top: 30px;
 
   background: rgba(0, 0, 0, 0.2);
 
   transition: ${theme.transition};
+  overflow-y: scroll;
 
   &.is-hidden {
     opacity: 0;
@@ -123,6 +124,17 @@ export const FormInputBox = styled.div`
   width: 70%;
 `;
 
+export const FormInputBoxColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 70%;
+
+  & input {
+    width: 86%;
+  }
+`;
+
 export const FormInput = styled(Field)`
   width: 70%;
   padding: 5px;
@@ -195,6 +207,14 @@ export const FormInputFile = styled(Field)`
   }
 `;
 
+export const FormInputArray = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 3px;
+`;
+
 export const CloseBtn = styled.button`
   position: absolute;
   top: 10px;
@@ -235,6 +255,60 @@ export const DoneBtn = styled.button`
   border-radius: 50%;
   backdrop-filter: blur(2px);
   z-index: 50;
+
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    color: ${theme.colors.white};
+    background-color: ${theme.colors.braun};
+  }
+`;
+
+export const IncrementBtn = styled.button`
+  width: 20px;
+  height: 26px;
+  padding: 0;
+  text-align: center;
+
+  font-family: ${theme.fonts[2]};
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.33;
+  letter-spacing: 0.04em;
+  background-color: ${theme.colors.white};
+  color: ${theme.colors.black};
+  border: 1px solid ${theme.colors.braun};
+  border-radius: 4px;
+  outline: none;
+  transition: ${theme.transition};
+
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    color: ${theme.colors.white};
+    background-color: ${theme.colors.braun};
+  }
+`;
+
+export const AddDetailsBtn = styled.button`
+  padding: 5px;
+  text-align: start;
+
+  font-family: ${theme.fonts[2]};
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.33;
+  letter-spacing: 0.04em;
+
+  background-color: ${theme.colors.white};
+  color: ${theme.colors.gray};
+  border: 1px solid ${theme.colors.braun};
+  border-radius: 4px;
+  outline: none;
+
+  transition: ${theme.transition};
 
   cursor: pointer;
 
