@@ -39,6 +39,13 @@ export const TableFilter = styled.thead`
 
     border-color: #f7f7f7;
     border-radius: 40px;
+
+    &:hover,
+    &:focus,
+    &:focus-visible,
+    &:focus-within {
+      border: 2px solid ${theme.colors.braun};
+    }
   }
 `;
 
@@ -116,7 +123,7 @@ export const BtnWrapper = styled.div`
     &:hover,
     &:focus,
     &:active {
-      color: ${theme.colors.accent};
+      color: ${theme.colors.braun};
     }
 
     & > svg {
