@@ -427,6 +427,7 @@ export const EditModal = () => {
                         onChange={e => {
                           handleChange(e);
                           setFieldValue('images', dataUpdate.images);
+                          setImg(e.target.files[0]);
                           setImage(e);
                         }}
                       />
