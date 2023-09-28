@@ -23,7 +23,7 @@ import {
   Details,
 } from './Menu.styled';
 
-export const Menu = ({ catalog,activeSection }) => {
+export const Menu = ({ catalog, activeSection }) => {
   const { BASE_URL_IMG } = window.global;
   const [menu, setMenu] = useState([]);
   const [, setGroup] = useState([]);
@@ -70,7 +70,7 @@ export const Menu = ({ catalog,activeSection }) => {
         {catalog &&
           catalog?.map(it => (
             <div
-              className="menu-section" 
+              className="menu-section"
               style={{ width: '100%' }}
               key={uuidv4()}
               id={it}
