@@ -43,8 +43,11 @@ export const CreateModal = () => {
   const userName = useSelector(selectUser);
 
   async function createService(values) {
-    // const file = document.querySelector('#images')?.files[0];
     const file = img;
+
+    // console.log('createService ~ file:', file);
+    // console.log('createService ~ values:', values);
+
     setIsLoading(true);
     try {
       const { code } = await createServiceData(`/admin/create`, values, file);
@@ -99,6 +102,7 @@ export const CreateModal = () => {
               admin: userName,
             }}
             onSubmit={(values, { setSubmitting }) => {
+              console.log('CreateModal ~ values:', values);
               createService(values);
               dispatch(addReload(false));
               setSubmitting(false);
