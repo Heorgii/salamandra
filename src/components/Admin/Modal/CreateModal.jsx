@@ -104,7 +104,6 @@ export const CreateModal = () => {
               admin: userName,
             }}
             onSubmit={(values, { setSubmitting }) => {
-              console.log('CreateModal ~ values:', values);
               createService(values);
               dispatch(addReload(false));
               setSubmitting(false);

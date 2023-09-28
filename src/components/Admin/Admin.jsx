@@ -52,9 +52,6 @@ export const Admin = () => {
   const [filterActive, setFilterActive] = useState('');
   const [filterAdmin, setFilterAdmin] = useState('');
 
-  //   console.log('filterPositions:', filterPositions);
-  //   console.log('filterPrice:', filterPrice);
-
   useEffect(() => {
     getData();
   }, [reload]);
@@ -83,9 +80,8 @@ export const Admin = () => {
     } catch (error) {
       setError(error);
     } finally {
-      dispatch(addReload(true));
+      reload === true ? dispatch(addReload(false)) : dispatch(addReload(true));
       setIsLoading(false);
-      getData()
     }
   }
 

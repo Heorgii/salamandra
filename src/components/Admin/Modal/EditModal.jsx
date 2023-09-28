@@ -53,7 +53,7 @@ export const EditModal = () => {
       try {
         const { data } = await fetchData(itemForFetch);
         setDataUpdate(data);
-        setImg(data.images)
+        setImg(data.images);
         if (!data) {
           return onFetchError('Whoops, something went wrong');
         }
@@ -70,7 +70,15 @@ export const EditModal = () => {
 
   async function editPosition(values) {
     let file = false;
-    if(typeof img ==="string" && img !== '' && img !== 'none') {values.images =img } else { file = img;}
+    if (typeof img === 'string' && img !== '' && img !== 'none') {
+      values.images = img;
+    } else {
+      file = img;
+    }
+
+    // console.log('editPosition ~ file:', file);
+    // console.log('editPosition ~ values:', values);
+
     setIsLoading(true);
     try {
       const { code } = await updateServiceData(
