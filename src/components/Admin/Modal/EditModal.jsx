@@ -88,6 +88,7 @@ export const EditModal = () => {
     } finally {
       setIsLoading(false);
       dispatch(addReload(true));
+      setImg([]);
     }
   }
 
@@ -95,6 +96,7 @@ export const EditModal = () => {
     e.preventDefault();
     dispatch(cleanModal());
     closeModalWindow(e);
+    setImg([]);
   };
 
   return createPortal(

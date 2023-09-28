@@ -59,6 +59,7 @@ export const CreateModal = () => {
     } finally {
       setIsLoading(false);
       dispatch(addReload(true));
+      setImg([]);
     }
   }
 
@@ -66,6 +67,7 @@ export const CreateModal = () => {
     e.preventDefault();
     dispatch(cleanModal());
     closeModalWindow(e);
+    setImg([]);
   };
 
   return createPortal(

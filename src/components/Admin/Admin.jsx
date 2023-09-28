@@ -85,6 +85,7 @@ export const Admin = () => {
     } finally {
       dispatch(addReload(true));
       setIsLoading(false);
+      getData()
     }
   }
 
