@@ -457,7 +457,6 @@ export const EditModal = () => {
                 <DoneBtn
                   type="submit"
                   disabled={isSubmitting}
-                  // onClick={e => closeDataModal(e)}
                   aria-label="Submit"
                 >
                   <MdDone size={15} />
