@@ -1,5 +1,5 @@
-import theme from 'components/baseStyles/Variables.styled';
-import styled from 'styled-components';
+import theme from "components/baseStyles/Variables.styled";
+import styled from "styled-components";
 
 export const NavBox = styled.div`
   margin-top: 200px;
@@ -19,13 +19,14 @@ export const Nav = styled.nav`
   width: 100%;
   overflow-x: scroll;
   white-space: nowrap;
-  position: ${({ isFixed }) => (isFixed ? 'fixed' : 'static')};
-  top: ${({ isFixed }) => (isFixed ? '0' : 'auto')};
+  position: ${({ isfixed }) => (isfixed === "fall" ? "fixed" : "static")};
+  top: ${({ isfixed }) => (isfixed === "fall" ? "0" : "auto")};
   left: 0;
-  background-color: ${({ isFixed }) => (isFixed ? '#ffffff' : 'transparent')};
-  box-shadow: ${({ isFixed }) =>
-    isFixed ? '0px 2px 5px rgba(0, 0, 0, 0.1)' : 'none'};
-  z-index: ${({ isFixed }) => (isFixed ? '1000' : 'auto')};
+  background-color: ${({ isfixed }) =>
+    isfixed === "fall" ? "#ffffff" : "transparent"};
+  box-shadow: ${({ isfixed }) =>
+    isfixed === "fall" ? "0px 2px 5px rgba(0, 0, 0, 0.1)" : "none"};
+  z-index: ${({ isfixed }) => (isfixed === "fall" ? "1000" : "auto")};
   transition: top 0.3s ease;
 
   &::-webkit-scrollbar {
@@ -68,9 +69,9 @@ export const NavListItem = styled.li`
   border: 2px solid ${theme.colors.yellow};
   padding: 6px 13px;
 
-  /* transform: ${({ activeNavItem }) => (activeNavItem ? 'scale(1.1)' : '')};
+  /* transform: ${({ activeNavItem }) => (activeNavItem ? "scale(1.1)" : "")};
   background-color: ${({ activeNavItem }) =>
-    activeNavItem ? theme.colors.yellow : ''}; */
+    activeNavItem ? theme.colors.yellow : ""}; */
   /* &:hover {
     transform: scale(1.1);
     background: ${theme.colors.yellow};
@@ -87,7 +88,7 @@ export const NavListItem = styled.li`
 `;
 
 export const NavListItemLink = styled.a`
-  color: ${props => props.theme.orange};
+  color: ${(props) => props.theme.orange};
 
   &.active {
     color: ${theme.colors.white};
