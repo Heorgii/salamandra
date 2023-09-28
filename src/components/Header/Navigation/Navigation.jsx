@@ -25,11 +25,23 @@ export const Navigation = ({ catalog, isLoading, error }) => {
 
   useEffect(() => {
     const handleScroll = () => {
+      const sections = document.querySelectorAll('.menu-section');
+      let currentActiveSection = null;
+
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= 0 && rect.bottom >= 0) {
+          currentActiveSection = section.id;
+        }
+      });
+
+      setActiveItem(currentActiveSection);
+
       const nav = document.getElementById('nav');
       if (!nav) return;
 
       const navPosition = nav.getBoundingClientRect().top;
-      (navPosition <= 0 ? setIsFixed('fall'): setIsFixed(''));
+      navPosition <= 0 ? setIsFixed('fall') : setIsFixed('');
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -41,6 +53,7 @@ export const Navigation = ({ catalog, isLoading, error }) => {
   const handleItemClick = item => {
     setActiveItem(item);
   };
+
   return (
     <NavBox id="nav">
       <SwitchTheme />
