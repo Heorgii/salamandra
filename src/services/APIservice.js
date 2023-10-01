@@ -82,7 +82,7 @@ async function fetchServiceData(pathParams, body, file) {
 
 async function updateServiceData(pathParams, body, file) {
   const formData = new FormData();
-  file
+  file && file !== 'none'
     ? formData.set('images', file, file.name.replaceAll(' ', '_'))
     : formData.append('images', body.images);
   formData.append('article', body.article);
