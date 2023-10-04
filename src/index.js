@@ -21,7 +21,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={'Loading'} persistor={persistor}>
-        <BrowserRouter basename="salamandra">
+        {/* salamandra */}
+        <BrowserRouter basename="/">
           <ThemeStatus>
             <GlobalStyle />
             <App />
